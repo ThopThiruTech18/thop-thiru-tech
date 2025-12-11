@@ -23,6 +23,32 @@
             font-size: 2.5em;
             margin: 0;
         }
+        .sidebar {
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            padding-top: 20px;
+            margin-top: 80px;
+        }
+        .sidebar a {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #818181;
+            display: block;
+        }
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+        .main {
+            margin-left: 200px;
+            padding: 0px 10px;
+        }
         .container {
             max-width: 800px;
             margin: 20px auto;
@@ -59,7 +85,18 @@
     <header>
         <h1>Cybersecurity MCQs</h1>
     </header>
-    <div class="container">
+    <div class="sidebar">
+        <a href="../index.html">Home</a>
+        <a href="web-dev.html">Web Development</a>
+        <a href="data-science.html">Data Science</a>
+        <a href="cybersecurity.html">Cybersecurity</a>
+        <a href="ai-ml.html">AI & Machine Learning</a>
+        <a href="cloud-computing.html">Cloud Computing</a>
+        <a href="mobile-dev.html">Mobile Development</a>
+        <a href="java-interview.html">Java Interview</a>
+    </div>
+    <div class="main">
+        <div class="container">
         <p>Test your knowledge with these multiple-choice questions on Cybersecurity.</p>
         <div class="question">
             <p>1. What is phishing?</p>
@@ -151,7 +188,49 @@
             </div>
             <p class="answer">Answer: b) Verifying identity with two methods</p>
         </div>
+        <h2>Interview Questions</h2>
+        <div class="question">
+            <p>1. What is the CIA triad?</p>
+            <p class="answer">Answer: Confidentiality, Integrity, Availability.</p>
+        </div>
+        <div class="question">
+            <p>2. Explain symmetric vs asymmetric encryption.</p>
+            <p class="answer">Answer: Symmetric uses same key, asymmetric uses public/private keys.</p>
+        </div>
+        <div class="question">
+            <p>3. What is a zero-day vulnerability?</p>
+            <p class="answer">Answer: Unknown vulnerability exploited before patch.</p>
+        </div>
+        <div class="question">
+            <p>4. What is penetration testing?</p>
+            <p class="answer">Answer: Simulating attacks to find vulnerabilities.</p>
+        </div>
+        <div class="question">
+            <p>5. Explain the difference between IDS and IPS.</p>
+            <p class="answer">Answer: IDS detects, IPS prevents intrusions.</p>
+        </div>
+        <div class="question">
+            <p>6. What is a man-in-the-middle attack?</p>
+            <p class="answer">Answer: Intercepting communication between parties.</p>
+        </div>
+        <div class="question">
+            <p>7. What is SQL injection?</p>
+            <p class="answer">Answer: Injecting malicious SQL code.</p>
+        </div>
+        <div class="question">
+            <p>8. Explain the principle of least privilege.</p>
+            <p class="answer">Answer: Users have minimum necessary permissions.</p>
+        </div>
+        <div class="question">
+            <p>9. What is a honeypot?</p>
+            <p class="answer">Answer: Decoy system to attract attackers.</p>
+        </div>
+        <div class="question">
+            <p>10. What is incident response?</p>
+            <p class="answer">Answer: Process to handle security breaches.</p>
+        </div>
         <p><a href="../index.html">Back to Home</a></p>
+    </div>
     </div>
     <footer>
         &copy; 2025 Thop Thiru Tech Institute. All rights reserved.

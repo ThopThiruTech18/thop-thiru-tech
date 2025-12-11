@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Interview Questions - Thop Thiru Tech Institute</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #ff7e5f, #feb47b);
+            color: #fff;
+            text-align: center;
+        }
+        header {
+            background-color: #333;
+            padding: 20px;
+            color: #fff;
+        }
+        h1 {
+            color: #ffd700;
+            font-size: 2.5em;
+            margin: 0;
+        }
+        .sidebar {
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            padding-top: 20px;
+            margin-top: 80px;
+        }
+        .sidebar a {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #818181;
+            display: block;
+        }
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+        .main {
+            margin-left: 200px;
+            padding: 0px 10px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            color: #333;
+            text-align: left;
+        }
+        .question {
+            margin: 20px 0;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+        .answer {
+            font-weight: bold;
+            color: #4caf50;
+        }
+        footer {
+            background-color: #333;
+            padding: 10px;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Java Interview Questions</h1>
+    </header>
+    <div class="sidebar">
+        <a href="../index.html">Home</a>
+        <a href="web-dev.html">Web Development</a>
+        <a href="data-science.html">Data Science</a>
+        <a href="cybersecurity.html">Cybersecurity</a>
+        <a href="ai-ml.html">AI & Machine Learning</a>
+        <a href="cloud-computing.html">Cloud Computing</a>
+        <a href="mobile-dev.html">Mobile Development</a>
+        <a href="java-interview.html">Java Interview</a>
+    </div>
+    <div class="main">
+        <div class="container">
+        <p>Here are 100 common Java interview questions with answers.</p>
+        <div class="question">
+            <p>1. What is Java?</p>
+            <p class="answer">Answer: Java is a high-level, object-oriented programming language developed by Sun Microsystems (now Oracle).</p>
+        </div>
+        <div class="question">
+            <p>2. What are the main features of Java?</p>
+            <p class="answer">Answer: Platform independence, object-oriented, secure, robust, multithreaded, etc.</p>
+        </div>
+        <div class="question">
+            <p>3. What is JVM?</p>
+            <p class="answer">Answer: Java Virtual Machine, which executes Java bytecode.</p>
+        </div>
+        <div class="question">
+            <p>4. What is JRE?</p>
+            <p class="answer">Answer: Java Runtime Environment, includes JVM and libraries.</p>
+        </div>
+        <div class="question">
+            <p>5. What is JDK?</p>
+            <p class="answer">Answer: Java Development Kit, includes JRE and development tools.</p>
+        </div>
+        <div class="question">
+            <p>6. What is the difference between JDK, JRE, and JVM?</p>
+            <p class="answer">Answer: JDK is for development, JRE for running, JVM is the virtual machine.</p>
+        </div>
+        <div class="question">
+            <p>7. What is a class in Java?</p>
+            <p class="answer">Answer: A blueprint for objects, containing methods and variables.</p>
+        </div>
+        <div class="question">
+            <p>8. What is an object in Java?</p>
+            <p class="answer">Answer: An instance of a class.</p>
+        </div>
+        <div class="question">
+            <p>9. What is inheritance?</p>
+            <p class="answer">Answer: Mechanism where one class acquires properties of another.</p>
+        </div>
+        <div class="question">
+            <p>10. What is polymorphism?</p>
+            <p class="answer">Answer: Ability of an object to take many forms.</p>
+        </div>
+        <div class="question">
+            <p>11. What is encapsulation?</p>
+            <p class="answer">Answer: Wrapping data and methods into a single unit.</p>
+        </div>
+        <div class="question">
+            <p>12. What is abstraction?</p>
+            <p class="answer">Answer: Hiding implementation details and showing only functionality.</p>
+        </div>
+        <div class="question">
+            <p>13. What are access modifiers in Java?</p>
+            <p class="answer">Answer: public, private, protected, default.</p>
+        </div>
+        <div class="question">
+            <p>14. What is the difference between abstract class and interface?</p>
+            <p class="answer">Answer: Abstract class can have concrete methods, interface cannot (before Java 8).</p>
+        </div>
+        <div class="question">
+            <p>15. What is a constructor?</p>
+            <p class="answer">Answer: Special method to initialize objects.</p>
+        </div>
+        <div class="question">
+            <p>16. What is method overloading?</p>
+            <p class="answer">Answer: Same method name with different parameters.</p>
+        </div>
+        <div class="question">
+            <p>17. What is method overriding?</p>
+            <p class="answer">Answer: Subclass provides specific implementation of superclass method.</p>
+        </div>
+        <div class="question">
+            <p>18. What is the super keyword?</p>
+            <p class="answer">Answer: Refers to superclass.</p>
+        </div>
+        <div class="question">
+            <p>19. What is the this keyword?</p>
+            <p class="answer">Answer: Refers to current object.</p>
+        </div>
+        <div class="question">
+            <p>20. What is a static variable?</p>
+            <p class="answer">Answer: Shared among all instances of the class.</p>
+        </div>
+        <div class="question">
+            <p>21. What is a static method?</p>
+            <p class="answer">Answer: Can be called without creating an instance.</p>
+        </div>
+        <div class="question">
+            <p>22. What is final keyword?</p>
+            <p class="answer">Answer: Used to make variables, methods, or classes unchangeable.</p>
+        </div>
+        <div class="question">
+            <p>23. What is a String in Java?</p>
+            <p class="answer">Answer: Immutable sequence of characters.</p>
+        </div>
+        <div class="question">
+            <p>24. What is StringBuilder?</p>
+            <p class="answer">Answer: Mutable sequence of characters.</p>
+        </div>
+        <div class="question">
+            <p>25. What is the difference between == and equals()?</p>
+            <p class="answer">Answer: == checks reference, equals() checks content.</p>
+        </div>
+        <div class="question">
+            <p>26. What is an ArrayList?</p>
+            <p class="answer">Answer: Resizable array implementation of List interface.</p>
+        </div>
+        <div class="question">
+            <p>27. What is a HashMap?</p>
+            <p class="answer">Answer: Key-value pair storage.</p>
+        </div>
+        <div class="question">
+            <p>28. What is an exception?</p>
+            <p class="answer">Answer: An event that occurs during execution disrupting normal flow.</p>
+        </div>
+        <div class="question">
+            <p>29. What is try-catch?</p>
+            <p class="answer">Answer: Blocks to handle exceptions.</p>
+        </div>
+        <div class="question">
+            <p>30. What is finally block?</p>
+            <p class="answer">Answer: Executes regardless of exception.</p>
+        </div>
+        <div class="question">
+            <p>31. What is multithreading?</p>
+            <p class="answer">Answer: Running multiple threads simultaneously.</p>
+        </div>
+        <div class="question">
+            <p>32. What is synchronization?</p>
+            <p class="answer">Answer: Controlling access to shared resources.</p>
+        </div>
+        <div class="question">
+            <p>33. What is a thread?</p>
+            <p class="answer">Answer: Lightweight subprocess.</p>
+        </div>
+        <div class="question">
+            <p>34. What is Runnable interface?</p>
+            <p class="answer">Answer: Interface for creating threads.</p>
+        </div>
+        <div class="question">
+            <p>35. What is garbage collection?</p>
+            <p class="answer">Answer: Automatic memory management.</p>
+        </div>
+        <div class="question">
+            <p>36. What is serialization?</p>
+            <p class="answer">Answer: Converting object to byte stream.</p>
+        </div>
+        <div class="question">
+            <p>37. What is deserialization?</p>
+            <p class="answer">Answer: Converting byte stream back to object.</p>
+        </div>
+        <div class="question">
+            <p>38. What is a lambda expression?</p>
+            <p class="answer">Answer: Anonymous function for functional programming.</p>
+        </div>
+        <div class="question">
+            <p>39. What is a stream in Java 8?</p>
+            <p class="answer">Answer: Sequence of elements supporting sequential and parallel operations.</p>
+        </div>
+        <div class="question">
+            <p>40. What is Optional in Java?</p>
+            <p class="answer">Answer: Container for potentially null values.</p>
+        </div>
+        <div class="question">
+            <p>41. What is the main method?</p>
+            <p class="answer">Answer: Entry point of Java application.</p>
+        </div>
+        <div class="question">
+            <p>42. What is a package?</p>
+            <p class="answer">Answer: Group of related classes and interfaces.</p>
+        </div>
+        <div class="question">
+            <p>43. What is import statement?</p>
+            <p class="answer">Answer: Brings classes from other packages.</p>
+        </div>
+        <div class="question">
+            <p>44. What is a jar file?</p>
+            <p class="answer">Answer: Java Archive file containing compiled classes.</p>
+        </div>
+        <div class="question">
+            <p>45. What is JDBC?</p>
+            <p class="answer">Answer: Java Database Connectivity for database access.</p>
+        </div>
+        <div class="question">
+            <p>46. What is Hibernate?</p>
+            <p class="answer">Answer: ORM framework for Java.</p>
+        </div>
+        <div class="question">
+            <p>47. What is Spring Framework?</p>
+            <p class="answer">Answer: Framework for enterprise Java applications.</p>
+        </div>
+        <div class="question">
+            <p>48. What is Maven?</p>
+            <p class="answer">Answer: Build automation tool.</p>
+        </div>
+        <div class="question">
+            <p>49. What is Gradle?</p>
+            <p class="answer">Answer: Build tool similar to Maven.</p>
+        </div>
+        <div class="question">
+            <p>50. What is JUnit?</p>
+            <p class="answer">Answer: Testing framework for Java.</p>
+        </div>
+        <div class="question">
+            <p>51. What is the difference between ArrayList and LinkedList?</p>
+            <p class="answer">Answer: ArrayList is array-based, LinkedList is node-based.</p>
+        </div>
+        <div class="question">
+            <p>52. What is the difference between HashMap and HashTable?</p>
+            <p class="answer">Answer: HashMap is not synchronized, HashTable is.</p>
+        </div>
+        <div class="question">
+            <p>53. What is the difference between Iterator and ListIterator?</p>
+            <p class="answer">Answer: ListIterator can traverse backwards.</p>
+        </div>
+        <div class="question">
+            <p>54. What is the difference between throw and throws?</p>
+            <p class="answer">Answer: throw throws exception, throws declares it.</p>
+        </div>
+        <div class="question">
+            <p>55. What is checked exception?</p>
+            <p class="answer">Answer: Checked at compile time.</p>
+        </div>
+        <div class="question">
+            <p>56. What is unchecked exception?</p>
+            <p class="answer">Answer: Checked at runtime.</p>
+        </div>
+        <div class="question">
+            <p>57. What is NullPointerException?</p>
+            <p class="answer">Answer: Thrown when accessing null object.</p>
+        </div>
+        <div class="question">
+            <p>58. What is ArrayIndexOutOfBoundsException?</p>
+            <p class="answer">Answer: Thrown when accessing invalid array index.</p>
+        </div>
+        <div class="question">
+            <p>59. What is ClassNotFoundException?</p>
+            <p class="answer">Answer: Thrown when class not found.</p>
+        </div>
+        <div class="question">
+            <p>60. What is NoClassDefFoundError?</p>
+            <p class="answer">Answer: Thrown when class definition not found at runtime.</p>
+        </div>
+        <div class="question">
+            <p>61. What is the difference between process and thread?</p>
+            <p class="answer">Answer: Process is heavyweight, thread is lightweight.</p>
+        </div>
+        <div class="question">
+            <p>62. What is deadlock?</p>
+            <p class="answer">Answer: Situation where threads wait indefinitely.</p>
+        </div>
+        <div class="question">
+            <p>63. What is volatile keyword?</p>
+            <p class="answer">Answer: Ensures visibility of changes to variables across threads.</p>
+        </div>
+        <div class="question">
+            <p>64. What is the difference between wait() and sleep()?</p>
+            <p class="answer">Answer: wait() releases lock, sleep() does not.</p>
+        </div>
+        <div class="question">
+            <p>65. What is the difference between notify() and notifyAll()?</p>
+            <p class="answer">Answer: notify() wakes one thread, notifyAll() wakes all.</p>
+        </div>
+        <div class="question">
+            <p>66. What is the difference between String, StringBuffer, and StringBuilder?</p>
+            <p class="answer">Answer: String is immutable, StringBuffer is synchronized mutable, StringBuilder is non-synchronized mutable.</p>
+        </div>
+        <div class="question">
+            <p>67. What is autoboxing?</p>
+            <p class="answer">Answer: Automatic conversion of primitive to wrapper.</p>
+        </div>
+        <div class="question">
+            <p>68. What is unboxing?</p>
+            <p class="answer">Answer: Automatic conversion of wrapper to primitive.</p>
+        </div>
+        <div class="question">
+            <p>69. What is generics?</p>
+            <p class="answer">Answer: Allows type parameters.</p>
+        </div>
+        <div class="question">
+            <p>70. What is the difference between List and Set?</p>
+            <p class="answer">Answer: List allows duplicates, Set does not.</p>
+        </div>
+        <div class="question">
+            <p>71. What is the difference between HashSet and TreeSet?</p>
+            <p class="answer">Answer: HashSet unordered, TreeSet ordered.</p>
+        </div>
+        <div class="question">
+            <p>72. What is the difference between Array and ArrayList?</p>
+            <p class="answer">Answer: Array fixed size, ArrayList resizable.</p>
+        </div>
+        <div class="question">
+            <p>73. What is the difference between Comparable and Comparator?</p>
+            <p class="answer">Answer: Comparable natural ordering, Comparator custom.</p>
+        </div>
+        <div class="question">
+            <p>74. What is the difference between fail-fast and fail-safe iterators?</p>
+            <p class="answer">Answer: Fail-fast throws exception on modification, fail-safe does not.</p>
+        </div>
+        <div class="question">
+            <p>75. What is the difference between HashMap and ConcurrentHashMap?</p>
+            <p class="answer">Answer: ConcurrentHashMap is thread-safe.</p>
+        </div>
+        <div class="question">
+            <p>76. What is the difference between Vector and ArrayList?</p>
+            <p class="answer">Answer: Vector is synchronized, ArrayList is not.</p>
+        </div>
+        <div class="question">
+            <p>77. What is the difference between Stack and Queue?</p>
+            <p class="answer">Answer: Stack LIFO, Queue FIFO.</p>
+        </div>
+        <div class="question">
+            <p>78. What is the difference between LinkedHashMap and HashMap?</p>
+            <p class="answer">Answer: LinkedHashMap maintains insertion order.</p>
+        </div>
+        <div class="question">
+            <p>79. What is the difference between TreeMap and HashMap?</p>
+            <p class="answer">Answer: TreeMap sorted, HashMap not.</p>
+        </div>
+        <div class="question">
+            <p>80. What is the difference between EnumSet and HashSet?</p>
+            <p class="answer">Answer: EnumSet for enums, more efficient.</p>
+        </div>
+        <div class="question">
+            <p>81. What is the difference between FileInputStream and FileReader?</p>
+            <p class="answer">Answer: FileInputStream for bytes, FileReader for characters.</p>
+        </div>
+        <div class="question">
+            <p>82. What is the difference between BufferedReader and FileReader?</p>
+            <p class="answer">Answer: BufferedReader buffered, more efficient.</p>
+        </div>
+        <div class="question">
+            <p>83. What is the difference between PrintWriter and FileWriter?</p>
+            <p class="answer">Answer: PrintWriter has print methods.</p>
+        </div>
+        <div class="question">
+            <p>84. What is the difference between Serializable and Externalizable?</p>
+            <p class="answer">Answer: Externalizable allows custom serialization.</p>
+        </div>
+        <div class="question">
+            <p>85. What is the difference between transient and volatile?</p>
+            <p class="answer">Answer: transient excludes from serialization, volatile for threads.</p>
+        </div>
+        <div class="question">
+            <p>86. What is the difference between assert and if?</p>
+            <p class="answer">Answer: assert for debugging, can be disabled.</p>
+        </div>
+        <div class="question">
+            <p>87. What is the difference between break and continue?</p>
+            <p class="answer">Answer: break exits loop, continue skips iteration.</p>
+        </div>
+        <div class="question">
+            <p>88. What is the difference between do-while and while?</p>
+            <p class="answer">Answer: do-while executes at least once.</p>
+        </div>
+        <div class="question">
+            <p>89. What is the difference between for and while?</p>
+            <p class="answer">Answer: for known iterations, while condition-based.</p>
+        </div>
+        <div class="question">
+            <p>90. What is the difference between switch and if-else?</p>
+            <p class="answer">Answer: switch for multiple constants.</p>
+        </div>
+        <div class="question">
+            <p>91. What is the difference between int and Integer?</p>
+            <p class="answer">Answer: int primitive, Integer wrapper.</p>
+        </div>
+        <div class="question">
+            <p>92. What is the difference between float and double?</p>
+            <p class="answer">Answer: double has more precision.</p>
+        </div>
+        <div class="question">
+            <p>93. What is the difference between char and String?</p>
+            <p class="answer">Answer: char single character, String sequence.</p>
+        </div>
+        <div class="question">
+            <p>94. What is the difference between byte and short?</p>
+            <p class="answer">Answer: byte 8-bit, short 16-bit.</p>
+        </div>
+        <div class="question">
+            <p>95. What is the difference between long and int?</p>
+            <p class="answer">Answer: long 64-bit, int 32-bit.</p>
+        </div>
+        <div class="question">
+            <p>96. What is the difference between boolean and Boolean?</p>
+            <p class="answer">Answer: boolean primitive, Boolean wrapper.</p>
+        </div>
+        <div class="question">
+            <p>97. What is the difference between void and return?</p>
+            <p class="answer">Answer: void no return, return specifies value.</p>
+        </div>
+        <div class="question">
+            <p>98. What is the difference between static and instance?</p>
+            <p class="answer">Answer: static class-level, instance object-level.</p>
+        </div>
+        <div class="question">
+            <p>99. What is the difference between public and private?</p>
+            <p class="answer">Answer: public accessible everywhere, private only in class.</p>
+        </div>
+        <div class="question">
+            <p>100. What is the difference between protected and default?</p>
+            <p class="answer">Answer: protected subclass access, default package access.</p>
+        </div>
+        <p><a href="../index.html">Back to Home</a></p>
+    </div>
+    </div>
+    <footer>
+        &copy; 2025 Thop Thiru Tech Institute. All rights reserved.
+    </footer>
+</body>
+</html>

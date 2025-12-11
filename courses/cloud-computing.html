@@ -23,6 +23,32 @@
             font-size: 2.5em;
             margin: 0;
         }
+        .sidebar {
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            padding-top: 20px;
+            margin-top: 80px;
+        }
+        .sidebar a {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #818181;
+            display: block;
+        }
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+        .main {
+            margin-left: 200px;
+            padding: 0px 10px;
+        }
         .container {
             max-width: 800px;
             margin: 20px auto;
@@ -59,7 +85,18 @@
     <header>
         <h1>Cloud Computing MCQs</h1>
     </header>
-    <div class="container">
+    <div class="sidebar">
+        <a href="../index.html">Home</a>
+        <a href="web-dev.html">Web Development</a>
+        <a href="data-science.html">Data Science</a>
+        <a href="cybersecurity.html">Cybersecurity</a>
+        <a href="ai-ml.html">AI & Machine Learning</a>
+        <a href="cloud-computing.html">Cloud Computing</a>
+        <a href="mobile-dev.html">Mobile Development</a>
+        <a href="java-interview.html">Java Interview</a>
+    </div>
+    <div class="main">
+        <div class="container">
         <p>Test your knowledge with these multiple-choice questions on Cloud Computing.</p>
         <div class="question">
             <p>1. What is cloud computing?</p>
@@ -151,7 +188,49 @@
             </div>
             <p class="answer">Answer: a) S3</p>
         </div>
+        <h2>Interview Questions</h2>
+        <div class="question">
+            <p>1. What are the benefits of cloud computing?</p>
+            <p class="answer">Answer: Scalability, cost-efficiency, accessibility.</p>
+        </div>
+        <div class="question">
+            <p>2. Explain IaaS, PaaS, SaaS.</p>
+            <p class="answer">Answer: Infrastructure, Platform, Software as a Service.</p>
+        </div>
+        <div class="question">
+            <p>3. What is auto-scaling?</p>
+            <p class="answer">Answer: Automatically adjusting resources based on demand.</p>
+        </div>
+        <div class="question">
+            <p>4. What is a load balancer?</p>
+            <p class="answer">Answer: Distributes traffic across servers.</p>
+        </div>
+        <div class="question">
+            <p>5. Explain cloud migration.</p>
+            <p class="answer">Answer: Moving applications and data to the cloud.</p>
+        </div>
+        <div class="question">
+            <p>6. What is multi-cloud strategy?</p>
+            <p class="answer">Answer: Using multiple cloud providers.</p>
+        </div>
+        <div class="question">
+            <p>7. What is containerization?</p>
+            <p class="answer">Answer: Packaging applications with dependencies, e.g., Docker.</p>
+        </div>
+        <div class="question">
+            <p>8. Explain microservices architecture.</p>
+            <p class="answer">Answer: Breaking applications into small, independent services.</p>
+        </div>
+        <div class="question">
+            <p>9. What is DevOps?</p>
+            <p class="answer">Answer: Practices combining development and operations.</p>
+        </div>
+        <div class="question">
+            <p>10. What is cloud security?</p>
+            <p class="answer">Answer: Protecting data and applications in the cloud.</p>
+        </div>
         <p><a href="../index.html">Back to Home</a></p>
+    </div>
     </div>
     <footer>
         &copy; 2025 Thop Thiru Tech Institute. All rights reserved.
