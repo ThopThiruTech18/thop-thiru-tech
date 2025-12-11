@@ -23,6 +23,32 @@
             font-size: 2.5em;
             margin: 0;
         }
+        .sidebar {
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            padding-top: 20px;
+            margin-top: 80px;
+        }
+        .sidebar a {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #818181;
+            display: block;
+        }
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+        .main {
+            margin-left: 200px;
+            padding: 0px 10px;
+        }
         .container {
             max-width: 800px;
             margin: 20px auto;
@@ -79,16 +105,28 @@
     <header>
         <h1>Welcome to Thop Thiru Tech Institute</h1>
     </header>
-    <div class="container">
-        <p>We offer top-notch IT courses to help you build your career in technology.</p>
-        <div class="courses">
-            <a href="courses/web-dev.html" class="course">Web Development</a>
-            <a href="courses/data-science.html" class="course">Data Science</a>
-            <a href="courses/cybersecurity.html" class="course">Cybersecurity</a>
-            <a href="courses/ai-ml.html" class="course">AI & Machine Learning</a>
-            <a href="courses/cloud-computing.html" class="course">Cloud Computing</a>
-            <a href="courses/mobile-dev.html" class="course">Mobile Development</a>
-        </div>
+    <div class="sidebar">
+        <a href="#home">Home</a>
+        <a href="courses/web-dev.html">Web Development</a>
+        <a href="courses/data-science.html">Data Science</a>
+        <a href="courses/cybersecurity.html">Cybersecurity</a>
+        <a href="courses/ai-ml.html">AI & Machine Learning</a>
+        <a href="courses/cloud-computing.html">Cloud Computing</a>
+        <a href="courses/mobile-dev.html">Mobile Development</a>
+        <a href="courses/java-interview.html">Java Interview</a>
+    </div>
+    <div class="main">
+        <div class="container" id="home">
+            <p>We offer top-notch IT courses to help you build your career in technology.</p>
+            <div class="courses">
+                <a href="courses/web-dev.html" class="course">Web Development</a>
+                <a href="courses/data-science.html" class="course">Data Science</a>
+                <a href="courses/cybersecurity.html" class="course">Cybersecurity</a>
+                <a href="courses/ai-ml.html" class="course">AI & Machine Learning</a>
+                <a href="courses/cloud-computing.html" class="course">Cloud Computing</a>
+                <a href="courses/mobile-dev.html" class="course">Mobile Development</a>
+                <a href="courses/java-interview.html" class="course">Java Interview</a>
+            </div>
         <div class="course-content">
             <div id="web-dev" class="course-item">
                 <h3>Web Development</h3>
