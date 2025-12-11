@@ -23,4 +23,4 @@ git push -u origin main
 
 ## Local Development
 
-Open `index.html` in a web browser to view locally.
+Open `index.html` in a web browser to view locally.# thop-thiru-tech
