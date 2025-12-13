@@ -1,248 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI & Machine Learning MCQs - Thop Thiru Tech Institute</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to bottom, #ff7e5f, #feb47b);
-            color: #fff;
-            text-align: center;
-        }
-        header {
-            background-color: #333;
-            padding: 20px;
-            color: #fff;
-        }
-        h1 {
-            color: #ffd700;
-            font-size: 2.5em;
-            margin: 0;
-        }
-        .sidebar {
-            height: 100%;
-            width: 200px;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: #111;
-            overflow-x: hidden;
-            padding-top: 20px;
-            margin-top: 80px;
-        }
-        .sidebar a {
-            padding: 6px 8px 6px 16px;
-            text-decoration: none;
-            font-size: 20px;
-            color: #818181;
-            display: block;
-        }
-        .sidebar a:hover {
-            color: #f1f1f1;
-        }
-        .main {
-            margin-left: 200px;
-            padding: 0px 10px;
-        }
-        @media screen and (max-width: 768px) {
-            .sidebar {
-                display: none;
-            }
-            .main {
-                margin-left: 0;
-            }
-        }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            color: #333;
-            text-align: left;
-        }
-        .question {
-            margin: 20px 0;
-            padding: 10px;
-            background: #f9f9f9;
-            border-radius: 5px;
-        }
-        .options {
-            margin-left: 20px;
-        }
-        .answer {
-            font-weight: bold;
-            color: #4caf50;
-        }
-        footer {
-            background-color: #333;
-            padding: 10px;
-            color: #fff;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI & Machine Learning MCQs - Thop Thiru Tech Institute</title>
+
+<style>
+body{
+ font-family:Arial, sans-serif;
+ margin:0;padding:0;
+ background:linear-gradient(to bottom,#ff7e5f,#feb47b);
+ color:#fff;
+}
+
+/* HEADER */
+header{
+ background:#333;
+ padding:20px;
+ color:#ffd700;
+ text-align:center;
+ position:fixed;
+ width:100%;
+ top:0;
+ z-index:1000;
+}
+
+/* SIDEBAR */
+.sidebar{
+ position:fixed;
+ top:80px;
+ left:0;
+ width:220px;
+ height:100%;
+ background:#111;
+ padding:15px;
+ overflow-y:auto;
+}
+
+.sidebar h3{
+ color:#ffd700;
+ margin-bottom:10px;
+ text-align:center;
+}
+
+.sidebar button{
+ width:100%;
+ padding:12px;
+ margin-bottom:10px;
+ border:none;
+ border-radius:8px;
+ background:#333;
+ color:#fff;
+ font-size:16px;
+ cursor:pointer;
+ transition:0.3s;
+}
+
+.sidebar button:hover{
+ background:#ff7e5f;
+ transform:scale(1.03);
+}
+
+/* MAIN */
+.main{
+ margin-left:240px;
+ padding:120px 15px 80px;
+}
+
+.container{
+ max-width:850px;
+ margin:auto;
+ background:#fff;
+ color:#333;
+ padding:20px;
+ border-radius:10px;
+}
+
+.question{
+ background:#f5f5f5;
+ padding:15px;
+ margin-bottom:15px;
+ border-radius:6px;
+}
+
+.options{margin-left:20px}
+
+.answer{
+ font-weight:bold;
+ color:#2e7d32;
+}
+
+/* FOOTER */
+footer{
+ background:#333;
+ color:#fff;
+ text-align:center;
+ padding:10px;
+ position:fixed;
+ width:100%;
+ bottom:0;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+ .sidebar{display:none}
+ .main{margin-left:0}
+}
+</style>
 </head>
+
 <body>
-    <header>
-        <h1>AI & Machine Learning MCQs</h1>
-    </header>
-    <div class="sidebar">
-        <a href="../index.html">Home</a>
-        <a href="web-dev.html">Web Development</a>
-        <a href="data-science.html">Data Science</a>
-        <a href="cybersecurity.html">Cybersecurity</a>
-        <a href="ai-ml.html">AI & Machine Learning</a>
-        <a href="cloud-computing.html">Cloud Computing</a>
-        <a href="mobile-dev.html">Mobile Development</a>
-        <a href="java-interview.html">Java Interview</a>
-        <a href="full-stack-java.html">Full Stack Java</a>
-    </div>
-    <div class="main">
-        <div class="container">
-        <p>Test your knowledge with these multiple-choice questions on AI & Machine Learning.</p>
-        <div class="question">
-            <p>1. What is supervised learning?</p>
-            <div class="options">
-                <p>a) Learning without labels</p>
-                <p>b) Learning with labeled data</p>
-                <p>c) Learning from images only</p>
-            </div>
-            <p class="answer">Answer: b) Learning with labeled data</p>
-        </div>
-        <div class="question">
-            <p>2. Which algorithm is used for regression?</p>
-            <div class="options">
-                <p>a) K-Means</p>
-                <p>b) Linear Regression</p>
-                <p>c) KNN</p>
-            </div>
-            <p class="answer">Answer: b) Linear Regression</p>
-        </div>
-        <div class="question">
-            <p>3. What is a neural network?</p>
-            <div class="options">
-                <p>a) A type of database</p>
-                <p>b) A model inspired by the human brain</p>
-                <p>c) A programming language</p>
-            </div>
-            <p class="answer">Answer: b) A model inspired by the human brain</p>
-        </div>
-        <div class="question">
-            <p>4. Which library is popular for machine learning in Python?</p>
-            <div class="options">
-                <p>a) TensorFlow</p>
-                <p>b) Django</p>
-                <p>c) Flask</p>
-            </div>
-            <p class="answer">Answer: a) TensorFlow</p>
-        </div>
-        <div class="question">
-            <p>5. What is overfitting?</p>
-            <div class="options">
-                <p>a) Model performs well on training data but poorly on new data</p>
-                <p>b) Model performs poorly on training data</p>
-                <p>c) Model has too few parameters</p>
-            </div>
-            <p class="answer">Answer: a) Model performs well on training data but poorly on new data</p>
-        </div>
-        <div class="question">
-            <p>6. What is unsupervised learning?</p>
-            <div class="options">
-                <p>a) Learning with labeled data</p>
-                <p>b) Learning without labeled data</p>
-                <p>c) Learning from images only</p>
-            </div>
-            <p class="answer">Answer: b) Learning without labeled data</p>
-        </div>
-        <div class="question">
-            <p>7. Which is a clustering algorithm?</p>
-            <div class="options">
-                <p>a) Linear Regression</p>
-                <p>b) K-Means</p>
-                <p>c) Decision Tree</p>
-            </div>
-            <p class="answer">Answer: b) K-Means</p>
-        </div>
-        <div class="question">
-            <p>8. What is reinforcement learning?</p>
-            <div class="options">
-                <p>a) Learning from rewards and punishments</p>
-                <p>b) Learning from labeled data</p>
-                <p>c) Learning from clusters</p>
-            </div>
-            <p class="answer">Answer: a) Learning from rewards and punishments</p>
-        </div>
-        <div class="question">
-            <p>9. What is a convolutional neural network (CNN) used for?</p>
-            <div class="options">
-                <p>a) Text processing</p>
-                <p>b) Image recognition</p>
-                <p>c) Time series forecasting</p>
-            </div>
-            <p class="answer">Answer: b) Image recognition</p>
-        </div>
-        <div class="question">
-            <p>10. What is bias in machine learning?</p>
-            <div class="options">
-                <p>a) A type of algorithm</p>
-                <p>b) Systematic error from incorrect assumptions</p>
-                <p>c) Random error in data</p>
-            </div>
-            <p class="answer">Answer: b) Systematic error from incorrect assumptions</p>
-        </div>
-        <h2>Interview Questions</h2>
-        <div class="question">
-            <p>1. What is deep learning?</p>
-            <p class="answer">Answer: Subset of ML using neural networks with many layers.</p>
-        </div>
-        <div class="question">
-            <p>2. Explain gradient descent.</p>
-            <p class="answer">Answer: Optimization algorithm to minimize loss function.</p>
-        </div>
-        <div class="question">
-            <p>3. What is backpropagation?</p>
-            <p class="answer">Answer: Algorithm for training neural networks.</p>
-        </div>
-        <div class="question">
-            <p>4. What is a hyperparameter?</p>
-            <p class="answer">Answer: Parameter set before training, like learning rate.</p>
-        </div>
-        <div class="question">
-            <p>5. Explain the curse of dimensionality.</p>
-            <p class="answer">Answer: Problems with high-dimensional data.</p>
-        </div>
-        <div class="question">
-            <p>6. What is transfer learning?</p>
-            <p class="answer">Answer: Using pre-trained model for new task.</p>
-        </div>
-        <div class="question">
-            <p>7. What is a GAN?</p>
-            <p class="answer">Answer: Generative Adversarial Network for generating data.</p>
-        </div>
-        <div class="question">
-            <p>8. Explain natural language processing.</p>
-            <p class="answer">Answer: AI field for understanding human language.</p>
-        </div>
-        <div class="question">
-            <p>9. What is computer vision?</p>
-            <p class="answer">Answer: AI for interpreting visual information.</p>
-        </div>
-        <div class="question">
-            <p>10. What is reinforcement learning?</p>
-            <p class="answer">Answer: Learning through interaction with environment.</p>
-        </div>
-        <p><a href="../index.html">Back to Home</a></p>
-    </div>
-    </div>
-    <footer>
-        &copy; 2025 Thop Thiru Tech Institute. All rights reserved.
-    </footer>
+
+<header>
+<h1>AI & Machine Learning MCQs</h1>
+</header>
+
+<!-- SIDEBAR WITH SUBJECT BUTTONS -->
+<div class="sidebar">
+<h3>Subjects</h3>
+
+<button onclick="location.href='../index.html'">🏠 Home</button>
+<button onclick="location.href='web-dev.html'">🌐 Web Development</button>
+<button onclick="location.href='data-science.html'">📊 Data Science</button>
+<button onclick="location.href='cybersecurity.html'">🔐 Cybersecurity</button>
+<button onclick="location.href='ai-ml.html'">🤖 AI & ML</button>
+<button onclick="location.href='cloud-computing.html'">☁ Cloud Computing</button>
+<button onclick="location.href='mobile-dev.html'">📱 Mobile Development</button>
+<button onclick="location.href='java-interview.html'">☕ Java Interview</button>
+<button onclick="location.href='full-stack-java.html'">🧑‍💻 Full Stack Java</button>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+<div class="container">
+
+<p>Test your knowledge with these multiple-choice questions on AI & Machine Learning.</p>
+
+<div class="question">
+<p>1. What is supervised learning?</p>
+<div class="options">
+<p>a) Learning without labels</p>
+<p>b) Learning with labeled data</p>
+<p>c) Learning from images only</p>
+</div>
+<p class="answer">Answer: b) Learning with labeled data</p>
+</div>
+
+<div class="question">
+<p>2. Which algorithm is used for regression?</p>
+<div class="options">
+<p>a) K-Means</p>
+<p>b) Linear Regression</p>
+<p>c) KNN</p>
+</div>
+<p class="answer">Answer: b) Linear Regression</p>
+</div>
+
+<div class="question">
+<p>3. What is a neural network?</p>
+<div class="options">
+<p>a) A type of database</p>
+<p>b) A model inspired by the human brain</p>
+<p>c) A programming language</p>
+</div>
+<p class="answer">Answer: b) A model inspired by the human brain</p>
+</div>
+
+<h2>Interview Questions</h2>
+
+<div class="question">
+<p>What is deep learning?</p>
+<p class="answer">Subset of ML using multi-layer neural networks.</p>
+</div>
+
+<div class="question">
+<p>Explain gradient descent.</p>
+<p class="answer">Optimization algorithm to minimize loss.</p>
+</div>
+
+</div>
+</div>
+
+<footer>
+© 2025 Thop Thiru Tech Institute
+</footer>
+
 </body>
 </html>

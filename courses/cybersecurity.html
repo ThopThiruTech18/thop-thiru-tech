@@ -1,248 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cybersecurity Interview Questions - Thop Thiru Tech Institute</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to bottom, #ff7e5f, #feb47b);
-            color: #fff;
-            text-align: center;
-        }
-        header {
-            background-color: #333;
-            padding: 20px;
-            color: #fff;
-        }
-        h1 {
-            color: #ffd700;
-            font-size: 2.5em;
-            margin: 0;
-        }
-        .sidebar {
-            height: 100%;
-            width: 200px;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: #111;
-            overflow-x: hidden;
-            padding-top: 20px;
-            margin-top: 80px;
-        }
-        .sidebar a {
-            padding: 6px 8px 6px 16px;
-            text-decoration: none;
-            font-size: 20px;
-            color: #818181;
-            display: block;
-        }
-        .sidebar a:hover {
-            color: #f1f1f1;
-        }
-        .main {
-            margin-left: 200px;
-            padding: 0px 10px;
-        }
-        @media screen and (max-width: 768px) {
-            .sidebar {
-                display: none;
-            }
-            .main {
-                margin-left: 0;
-            }
-        }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            color: #333;
-            text-align: left;
-        }
-        .question {
-            margin: 20px 0;
-            padding: 10px;
-            background: #f9f9f9;
-            border-radius: 5px;
-        }
-        .options {
-            margin-left: 20px;
-        }
-        .answer {
-            font-weight: bold;
-            color: #4caf50;
-        }
-        footer {
-            background-color: #333;
-            padding: 10px;
-            color: #fff;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybersecurity MCQs</title>
+
+<style>
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #ff7e5f, #feb47b);
+    color: #333;
+}
+
+/* ===== HEADER ===== */
+header {
+    background: #222;
+    color: #ffd700;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 220px;
+    height: calc(100% - 80px);
+    background: #1e1e1e;
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Sidebar Buttons */
+.sidebar a {
+    text-decoration: none;
+    background: #333;
+    color: #fff;
+    padding: 12px;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+.sidebar a:hover {
+    background: #ff7e5f;
+    transform: translateX(6px);
+}
+
+/* Active Page */
+.sidebar a.active {
+    background: #ffd700;
+    color: #000;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main {
+    margin-left: 240px;
+    padding: 120px 20px 90px;
+}
+
+/* Content Card */
+.container {
+    max-width: 950px;
+    margin: auto;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+/* Question Card */
+.question {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.options p {
+    margin-left: 15px;
+}
+
+.answer {
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* ===== MOBILE VIEW ===== */
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+    .main {
+        margin-left: 0;
+        padding-top: 120px;
+    }
+}
+</style>
 </head>
+
 <body>
-    <header>
-        <h1>Cybersecurity MCQs</h1>
-    </header>
-    <div class="sidebar">
-        <a href="../index.html">Home</a>
-        <a href="web-dev.html">Web Development</a>
-        <a href="data-science.html">Data Science</a>
-        <a href="cybersecurity.html">Cybersecurity</a>
-        <a href="ai-ml.html">AI & Machine Learning</a>
-        <a href="cloud-computing.html">Cloud Computing</a>
-        <a href="mobile-dev.html">Mobile Development</a>
-        <a href="java-interview.html">Java Interview</a>
-        <a href="full-stack-java.html">Full Stack Java</a>
+
+<!-- ===== HEADER ===== -->
+<header>
+    <h1>Cybersecurity MCQs & Interview Questions</h1>
+</header>
+
+<!-- ===== SIDEBAR ===== -->
+<div class="sidebar">
+    <a href="../index.html">🏠 Home</a>
+    <a href="web-dev.html">🌐 Web Development</a>
+    <a href="data-science.html">📊 Data Science</a>
+    <a href="cybersecurity.html" class="active">🔐 Cybersecurity</a>
+    <a href="ai-ml.html">🤖 AI & ML</a>
+    <a href="cloud-computing.html">☁️ Cloud Computing</a>
+    <a href="mobile-dev.html">📱 Mobile Development</a>
+    <a href="java-interview.html">☕ Java Interview</a>
+    <a href="full-stack-java.html">🧩 Full Stack Java</a>
+</div>
+
+<!-- ===== MAIN ===== -->
+<div class="main">
+<div class="container">
+
+<p>Test your knowledge with these Cybersecurity MCQs.</p>
+<br>
+
+<h2>MCQs</h2>
+<br>
+
+<div class="question">
+    <p>1. What is phishing?</p>
+    <div class="options">
+        <p>a) A type of fish</p>
+        <p>b) A cyber attack to steal sensitive information</p>
+        <p>c) A network protocol</p>
     </div>
-    <div class="main">
-        <div class="container">
-        <p>Test your knowledge with these multiple-choice questions on Cybersecurity.</p>
-        <div class="question">
-            <p>1. What is phishing?</p>
-            <div class="options">
-                <p>a) A type of fish</p>
-                <p>b) A cyber attack to steal sensitive information</p>
-                <p>c) A network protocol</p>
-            </div>
-            <p class="answer">Answer: b) A cyber attack to steal sensitive information</p>
-        </div>
-        <div class="question">
-            <p>2. Which tool is used for password cracking?</p>
-            <div class="options">
-                <p>a) Wireshark</p>
-                <p>b) John the Ripper</p>
-                <p>c) Nmap</p>
-            </div>
-            <p class="answer">Answer: b) John the Ripper</p>
-        </div>
-        <div class="question">
-            <p>3. What does VPN stand for?</p>
-            <div class="options">
-                <p>a) Virtual Private Network</p>
-                <p>b) Very Private Network</p>
-                <p>c) Virtual Public Network</p>
-            </div>
-            <p class="answer">Answer: a) Virtual Private Network</p>
-        </div>
-        <div class="question">
-            <p>4. What is malware?</p>
-            <div class="options">
-                <p>a) A type of software</p>
-                <p>b) Malicious software designed to harm</p>
-                <p>c) A hardware component</p>
-            </div>
-            <p class="answer">Answer: b) Malicious software designed to harm</p>
-        </div>
-        <div class="question">
-            <p>5. Which is a common encryption standard?</p>
-            <div class="options">
-                <p>a) AES</p>
-                <p>b) HTTP</p>
-                <p>c) FTP</p>
-            </div>
-            <p class="answer">Answer: a) AES</p>
-        </div>
-        <div class="question">
-            <p>6. What is a firewall?</p>
-            <div class="options">
-                <p>a) A physical barrier</p>
-                <p>b) A network security system</p>
-                <p>c) A type of virus</p>
-            </div>
-            <p class="answer">Answer: b) A network security system</p>
-        </div>
-        <div class="question">
-            <p>7. What does DDoS stand for?</p>
-            <div class="options">
-                <p>a) Distributed Denial of Service</p>
-                <p>b) Direct Data Overload</p>
-                <p>c) Digital Defense System</p>
-            </div>
-            <p class="answer">Answer: a) Distributed Denial of Service</p>
-        </div>
-        <div class="question">
-            <p>8. Which is used for secure communication?</p>
-            <div class="options">
-                <p>a) HTTP</p>
-                <p>b) HTTPS</p>
-                <p>c) FTP</p>
-            </div>
-            <p class="answer">Answer: b) HTTPS</p>
-        </div>
-        <div class="question">
-            <p>9. What is social engineering?</p>
-            <div class="options">
-                <p>a) Building social networks</p>
-                <p>b) Manipulating people to divulge confidential information</p>
-                <p>c) Engineering software</p>
-            </div>
-            <p class="answer">Answer: b) Manipulating people to divulge confidential information</p>
-        </div>
-        <div class="question">
-            <p>10. What is two-factor authentication?</p>
-            <div class="options">
-                <p>a) Using two passwords</p>
-                <p>b) Verifying identity with two methods</p>
-                <p>c) Two-step login process</p>
-            </div>
-            <p class="answer">Answer: b) Verifying identity with two methods</p>
-        </div>
-        <h2>Interview Questions</h2>
-        <div class="question">
-            <p>1. What is the CIA triad?</p>
-            <p class="answer">Answer: Confidentiality, Integrity, Availability.</p>
-        </div>
-        <div class="question">
-            <p>2. Explain symmetric vs asymmetric encryption.</p>
-            <p class="answer">Answer: Symmetric uses same key, asymmetric uses public/private keys.</p>
-        </div>
-        <div class="question">
-            <p>3. What is a zero-day vulnerability?</p>
-            <p class="answer">Answer: Unknown vulnerability exploited before patch.</p>
-        </div>
-        <div class="question">
-            <p>4. What is penetration testing?</p>
-            <p class="answer">Answer: Simulating attacks to find vulnerabilities.</p>
-        </div>
-        <div class="question">
-            <p>5. Explain the difference between IDS and IPS.</p>
-            <p class="answer">Answer: IDS detects, IPS prevents intrusions.</p>
-        </div>
-        <div class="question">
-            <p>6. What is a man-in-the-middle attack?</p>
-            <p class="answer">Answer: Intercepting communication between parties.</p>
-        </div>
-        <div class="question">
-            <p>7. What is SQL injection?</p>
-            <p class="answer">Answer: Injecting malicious SQL code.</p>
-        </div>
-        <div class="question">
-            <p>8. Explain the principle of least privilege.</p>
-            <p class="answer">Answer: Users have minimum necessary permissions.</p>
-        </div>
-        <div class="question">
-            <p>9. What is a honeypot?</p>
-            <p class="answer">Answer: Decoy system to attract attackers.</p>
-        </div>
-        <div class="question">
-            <p>10. What is incident response?</p>
-            <p class="answer">Answer: Process to handle security breaches.</p>
-        </div>
-        <p><a href="../index.html">Back to Home</a></p>
+    <p class="answer">Answer: b) A cyber attack to steal sensitive information</p>
+</div>
+
+<div class="question">
+    <p>2. Which tool is used for password cracking?</p>
+    <div class="options">
+        <p>a) Wireshark</p>
+        <p>b) John the Ripper</p>
+        <p>c) Nmap</p>
     </div>
+    <p class="answer">Answer: b) John the Ripper</p>
+</div>
+
+<div class="question">
+    <p>3. What does VPN stand for?</p>
+    <div class="options">
+        <p>a) Virtual Private Network</p>
+        <p>b) Very Private Network</p>
+        <p>c) Virtual Public Network</p>
     </div>
-    <footer>
-        &copy; 2025 Thop Thiru Tech Institute. All rights reserved.
-    </footer>
+    <p class="answer">Answer: a) Virtual Private Network</p>
+</div>
+
+<div class="question">
+    <p>4. What is malware?</p>
+    <div class="options">
+        <p>a) A type of software</p>
+        <p>b) Malicious software designed to harm</p>
+        <p>c) A hardware component</p>
+    </div>
+    <p class="answer">Answer: b) Malicious software designed to harm</p>
+</div>
+
+<div class="question">
+    <p>5. Which is a common encryption standard?</p>
+    <div class="options">
+        <p>a) AES</p>
+        <p>b) HTTP</p>
+        <p>c) FTP</p>
+    </div>
+    <p class="answer">Answer: a) AES</p>
+</div>
+
+<h2>Interview Questions</h2>
+<br>
+
+<div class="question">
+    <p>1. What is the CIA triad?</p>
+    <p class="answer">Answer: Confidentiality, Integrity, Availability.</p>
+</div>
+
+<div class="question">
+    <p>2. Symmetric vs Asymmetric encryption?</p>
+    <p class="answer">Answer: Same key vs public/private keys.</p>
+</div>
+
+<div class="question">
+    <p>3. What is a zero-day vulnerability?</p>
+    <p class="answer">Answer: Exploited before a patch exists.</p>
+</div>
+
+<div class="question">
+    <p>4. What is penetration testing?</p>
+    <p class="answer">Answer: Simulated attacks to find weaknesses.</p>
+</div>
+
+<div class="question">
+    <p>5. IDS vs IPS?</p>
+    <p class="answer">Answer: IDS detects, IPS prevents attacks.</p>
+</div>
+
+</div>
+</div>
+
+<footer>
+© 2025 Thop Thiru Tech Institute. All rights reserved.
+</footer>
+
 </body>
 </html>

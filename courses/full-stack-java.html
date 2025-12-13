@@ -1,156 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Full Stack Java Interview Questions - Thop Thiru Tech Institute</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to bottom, #ff7e5f, #feb47b);
-            color: #fff;
-            text-align: center;
-        }
-        header {
-            background-color: #333;
-            padding: 20px;
-            color: #fff;
-        }
-        h1 {
-            color: #ffd700;
-            font-size: 2.5em;
-            margin: 0;
-        }
-        .sidebar {
-            height: 100%;
-            width: 200px;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: #111;
-            overflow-x: hidden;
-            padding-top: 20px;
-            margin-top: 80px;
-        }
-        .sidebar a {
-            padding: 6px 8px 6px 16px;
-            text-decoration: none;
-            font-size: 20px;
-            color: #818181;
-            display: block;
-        }
-        .sidebar a:hover {
-            color: #f1f1f1;
-        }
-        .main {
-            margin-left: 200px;
-            padding: 0px 10px;
-        }
-        @media screen and (max-width: 768px) {
-            .sidebar {
-                display: none;
-            }
-            .main {
-                margin-left: 0;
-            }
-        }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            color: #333;
-            text-align: left;
-        }
-        .question {
-            margin: 20px 0;
-            padding: 10px;
-            background: #f9f9f9;
-            border-radius: 5px;
-        }
-        .answer {
-            font-weight: bold;
-            color: #4caf50;
-        }
-        footer {
-            background-color: #333;
-            padding: 10px;
-            color: #fff;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full Stack Java Interview Questions - Thop Thiru Tech Institute</title>
+
+<style>
+body{
+    font-family:Arial, sans-serif;
+    margin:0;
+    background:linear-gradient(to bottom,#ff7e5f,#feb47b);
+}
+
+/* ===== HEADER ===== */
+header{
+    background:#333;
+    padding:20px;
+    color:#ffd700;
+    text-align:center;
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar{
+    position:fixed;
+    top:80px;
+    left:0;
+    width:220px;
+    height:100%;
+    background:#111;
+    padding:15px;
+}
+
+.sidebar a{
+    display:block;
+    margin-bottom:12px;
+    padding:14px;
+    background:#1e1e1e;
+    color:#fff;
+    text-decoration:none;
+    text-align:center;
+    font-size:16px;
+    font-weight:bold;
+    border-radius:10px;
+    transition:all 0.3s ease;
+}
+
+.sidebar a:hover{
+    background:#ffd700;
+    color:#000;
+    transform:translateX(6px);
+}
+
+/* ===== MAIN ===== */
+.main{
+    margin-left:240px;
+    padding:120px 20px 80px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    background:rgba(255,255,255,0.95);
+    padding:25px;
+    border-radius:12px;
+    color:#333;
+    text-align:left;
+}
+
+.question{
+    background:#f5f5f5;
+    padding:12px;
+    border-radius:8px;
+    margin-bottom:15px;
+}
+
+.answer{
+    color:#2e7d32;
+    font-weight:bold;
+}
+
+/* ===== FOOTER ===== */
+footer{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    background:#333;
+    color:#fff;
+    text-align:center;
+    padding:10px;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+    .sidebar{display:none}
+    .main{margin-left:0}
+}
+</style>
 </head>
+
 <body>
-    <header>
-        <h1>Full Stack Java Interview Questions</h1>
-    </header>
-    <div class="sidebar">
-        <a href="../index.html">Home</a>
-        <a href="web-dev.html">Web Development</a>
-        <a href="data-science.html">Data Science</a>
-        <a href="cybersecurity.html">Cybersecurity</a>
-        <a href="ai-ml.html">AI & Machine Learning</a>
-        <a href="cloud-computing.html">Cloud Computing</a>
-        <a href="mobile-dev.html">Mobile Development</a>
-        <a href="java-interview.html">Java Interview</a>
-        <a href="full-stack-java.html">Full Stack Java</a>
-        <a href="full-stack-java.html">Full Stack Java</a>
-    </div>
-    <div class="main">
-        <div class="container">
-        <p>Here are common interview questions on Full Stack Java.</p>
-        <h2>Interview Questions</h2>
-        <div class="question">
-            <p>1. What is full stack development?</p>
-            <p class="answer">Answer: Development of both frontend and backend of web applications.</p>
-        </div>
-        <div class="question">
-            <p>2. What is Spring Boot?</p>
-            <p class="answer">Answer: A framework to simplify Spring application development.</p>
-        </div>
-        <div class="question">
-            <p>3. Explain dependency injection.</p>
-            <p class="answer">Answer: A technique where an object receives its dependencies from an external source.</p>
-        </div>
-        <div class="question">
-            <p>4. What is Hibernate?</p>
-            <p class="answer">Answer: An ORM framework for mapping Java objects to database tables.</p>
-        </div>
-        <div class="question">
-            <p>5. What is REST API?</p>
-            <p class="answer">Answer: An API that uses HTTP requests to GET, PUT, POST, DELETE data.</p>
-        </div>
-        <div class="question">
-            <p>6. How do you handle exceptions in Spring?</p>
-            <p class="answer">Answer: Using @ExceptionHandler or global exception handling.</p>
-        </div>
-        <div class="question">
-            <p>7. What is JPA?</p>
-            <p class="answer">Answer: Java Persistence API, a specification for ORM.</p>
-        </div>
-        <div class="question">
-            <p>8. Difference between @RequestMapping and @GetMapping?</p>
-            <p class="answer">Answer: @RequestMapping is general, @GetMapping is for GET requests.</p>
-        </div>
-        <div class="question">
-            <p>9. What is Maven used for?</p>
-            <p class="answer">Answer: Dependency management and build automation.</p>
-        </div>
-        <div class="question">
-            <p>10. How to secure a REST API in Spring?</p>
-            <p class="answer">Answer: Use Spring Security with JWT or OAuth.</p>
-        </div>
-        <p><a href="../index.html">Back to Home</a></p>
-    </div>
-    </div>
-    <footer>
-        &copy; 2025 Thop Thiru Tech Institute. All rights reserved.
-    </footer>
+
+<header>
+    <h1>Full Stack Java Interview Questions</h1>
+</header>
+
+<!-- ===== LEFT NAV BUTTONS ===== -->
+<div class="sidebar">
+    <a href="../index.html">🏠 Home</a>
+    <a href="web-dev.html">🌐 Web Development</a>
+    <a href="data-science.html">📊 Data Science</a>
+    <a href="ai-ml.html">🤖 AI & ML</a>
+    <a href="cloud-computing.html">☁ Cloud Computing</a>
+    <a href="java-interview.html">☕ Java Interview</a>
+    <a href="full-stack-java.html" style="background:#ffd700;color:#000">🚀 Full Stack Java</a>
+    <a href="spring-boot.html">🌱 Spring Boot</a>
+    <a href="microservices.html">🧩 Microservices</a>
+    <a href="devops.html">⚙ DevOps</a>
+</div>
+
+<!-- ===== CONTENT ===== -->
+<div class="main">
+<div class="container">
+
+<p>Here are common interview questions on Full Stack Java.</p>
+
+<div class="question">
+<p>1. What is full stack development?</p>
+<p class="answer">Development of both frontend and backend of web applications.</p>
+</div>
+
+<div class="question">
+<p>2. What is Spring Boot?</p>
+<p class="answer">Framework to simplify Spring application development.</p>
+</div>
+
+<div class="question">
+<p>3. Explain dependency injection.</p>
+<p class="answer">Object receives dependencies from an external source.</p>
+</div>
+
+<div class="question">
+<p>4. What is Hibernate?</p>
+<p class="answer">ORM framework for mapping Java objects to database tables.</p>
+</div>
+
+<div class="question">
+<p>5. What is REST API?</p>
+<p class="answer">Uses HTTP methods to perform CRUD operations.</p>
+</div>
+
+<div class="question">
+<p>6. How do you handle exceptions in Spring?</p>
+<p class="answer">Using @ExceptionHandler or @ControllerAdvice.</p>
+</div>
+
+<div class="question">
+<p>7. What is JPA?</p>
+<p class="answer">Java Persistence API specification for ORM.</p>
+</div>
+
+<div class="question">
+<p>8. Difference between @RequestMapping and @GetMapping?</p>
+<p class="answer">@RequestMapping is generic, @GetMapping is specific to GET.</p>
+</div>
+
+<div class="question">
+<p>9. What is Maven used for?</p>
+<p class="answer">Dependency management and build automation.</p>
+</div>
+
+<div class="question">
+<p>10. How to secure a REST API in Spring?</p>
+<p class="answer">Using Spring Security with JWT or OAuth2.</p>
+</div>
+
+</div>
+</div>
+
+<footer>
+© 2025 Thop Thiru Tech Institute
+</footer>
+
 </body>
 </html>

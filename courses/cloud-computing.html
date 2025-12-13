@@ -1,248 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloud Computing MCQs - Thop Thiru Tech Institute</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to bottom, #ff7e5f, #feb47b);
-            color: #fff;
-            text-align: center;
-        }
-        header {
-            background-color: #333;
-            padding: 20px;
-            color: #fff;
-        }
-        h1 {
-            color: #ffd700;
-            font-size: 2.5em;
-            margin: 0;
-        }
-        .sidebar {
-            height: 100%;
-            width: 200px;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: #111;
-            overflow-x: hidden;
-            padding-top: 20px;
-            margin-top: 80px;
-        }
-        .sidebar a {
-            padding: 6px 8px 6px 16px;
-            text-decoration: none;
-            font-size: 20px;
-            color: #818181;
-            display: block;
-        }
-        .sidebar a:hover {
-            color: #f1f1f1;
-        }
-        .main {
-            margin-left: 200px;
-            padding: 0px 10px;
-        }
-        @media screen and (max-width: 768px) {
-            .sidebar {
-                display: none;
-            }
-            .main {
-                margin-left: 0;
-            }
-        }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            color: #333;
-            text-align: left;
-        }
-        .question {
-            margin: 20px 0;
-            padding: 10px;
-            background: #f9f9f9;
-            border-radius: 5px;
-        }
-        .options {
-            margin-left: 20px;
-        }
-        .answer {
-            font-weight: bold;
-            color: #4caf50;
-        }
-        footer {
-            background-color: #333;
-            padding: 10px;
-            color: #fff;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloud Computing MCQs - Thop Thiru Tech Institute</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:linear-gradient(to bottom,#ff7e5f,#feb47b);
+}
+
+/* ===== HEADER ===== */
+header{
+    background:#333;
+    padding:20px;
+    color:#ffd700;
+    text-align:center;
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar{
+    position:fixed;
+    top:80px;
+    left:0;
+    width:220px;
+    height:100%;
+    background:#111;
+    padding:15px;
+}
+
+.sidebar a{
+    display:block;
+    margin-bottom:12px;
+    padding:14px;
+    background:#1e1e1e;
+    color:#fff;
+    text-decoration:none;
+    text-align:center;
+    font-size:16px;
+    font-weight:bold;
+    border-radius:10px;
+    transition:all 0.3s ease;
+}
+
+.sidebar a:hover{
+    background:#ffd700;
+    color:#000;
+    transform:translateX(6px);
+}
+
+/* ===== MAIN ===== */
+.main{
+    margin-left:240px;
+    padding:120px 20px 80px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    background:rgba(255,255,255,0.95);
+    padding:25px;
+    border-radius:12px;
+    color:#333;
+    text-align:left;
+}
+
+.question{
+    background:#f5f5f5;
+    padding:12px;
+    border-radius:8px;
+    margin-bottom:15px;
+}
+
+.options{margin-left:15px}
+.answer{color:#2e7d32;font-weight:bold}
+
+/* ===== FOOTER ===== */
+footer{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    background:#333;
+    color:#fff;
+    text-align:center;
+    padding:10px;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+    .sidebar{display:none}
+    .main{margin-left:0}
+}
+</style>
 </head>
+
 <body>
-    <header>
-        <h1>Cloud Computing MCQs</h1>
-    </header>
-    <div class="sidebar">
-        <a href="../index.html">Home</a>
-        <a href="web-dev.html">Web Development</a>
-        <a href="data-science.html">Data Science</a>
-        <a href="cybersecurity.html">Cybersecurity</a>
-        <a href="ai-ml.html">AI & Machine Learning</a>
-        <a href="cloud-computing.html">Cloud Computing</a>
-        <a href="mobile-dev.html">Mobile Development</a>
-        <a href="java-interview.html">Java Interview</a>
-        <a href="full-stack-java.html">Full Stack Java</a>
-    </div>
-    <div class="main">
-        <div class="container">
-        <p>Test your knowledge with these multiple-choice questions on Cloud Computing.</p>
-        <div class="question">
-            <p>1. What is cloud computing?</p>
-            <div class="options">
-                <p>a) Storing data on local servers</p>
-                <p>b) Delivering computing services over the internet</p>
-                <p>c) Using physical hardware only</p>
-            </div>
-            <p class="answer">Answer: b) Delivering computing services over the internet</p>
-        </div>
-        <div class="question">
-            <p>2. Which is a major cloud service provider?</p>
-            <div class="options">
-                <p>a) AWS</p>
-                <p>b) Microsoft Office</p>
-                <p>c) Adobe Photoshop</p>
-            </div>
-            <p class="answer">Answer: a) AWS</p>
-        </div>
-        <div class="question">
-            <p>3. What does IaaS stand for?</p>
-            <div class="options">
-                <p>a) Infrastructure as a Service</p>
-                <p>b) Internet as a Service</p>
-                <p>c) Information as a Service</p>
-            </div>
-            <p class="answer">Answer: a) Infrastructure as a Service</p>
-        </div>
-        <div class="question">
-            <p>4. What is scalability in cloud computing?</p>
-            <div class="options">
-                <p>a) Ability to handle increased load</p>
-                <p>b) Reducing costs</p>
-                <p>c) Storing data locally</p>
-            </div>
-            <p class="answer">Answer: a) Ability to handle increased load</p>
-        </div>
-        <div class="question">
-            <p>5. Which service provides virtual machines?</p>
-            <div class="options">
-                <p>a) PaaS</p>
-                <p>b) SaaS</p>
-                <p>c) IaaS</p>
-            </div>
-            <p class="answer">Answer: c) IaaS</p>
-        </div>
-        <div class="question">
-            <p>6. What does PaaS stand for?</p>
-            <div class="options">
-                <p>a) Platform as a Service</p>
-                <p>b) Personal as a Service</p>
-                <p>c) Process as a Service</p>
-            </div>
-            <p class="answer">Answer: a) Platform as a Service</p>
-        </div>
-        <div class="question">
-            <p>7. Which is an example of SaaS?</p>
-            <div class="options">
-                <p>a) Google Drive</p>
-                <p>b) AWS EC2</p>
-                <p>c) Heroku</p>
-            </div>
-            <p class="answer">Answer: a) Google Drive</p>
-        </div>
-        <div class="question">
-            <p>8. What is hybrid cloud?</p>
-            <div class="options">
-                <p>a) Only public cloud</p>
-                <p>b) Combination of public and private clouds</p>
-                <p>c) Only private cloud</p>
-            </div>
-            <p class="answer">Answer: b) Combination of public and private clouds</p>
-        </div>
-        <div class="question">
-            <p>9. What is serverless computing?</p>
-            <div class="options">
-                <p>a) No servers needed</p>
-                <p>b) Running code without managing servers</p>
-                <p>c) Using physical servers</p>
-            </div>
-            <p class="answer">Answer: b) Running code without managing servers</p>
-        </div>
-        <div class="question">
-            <p>10. Which AWS service is for storage?</p>
-            <div class="options">
-                <p>a) S3</p>
-                <p>b) EC2</p>
-                <p>c) Lambda</p>
-            </div>
-            <p class="answer">Answer: a) S3</p>
-        </div>
-        <h2>Interview Questions</h2>
-        <div class="question">
-            <p>1. What are the benefits of cloud computing?</p>
-            <p class="answer">Answer: Scalability, cost-efficiency, accessibility.</p>
-        </div>
-        <div class="question">
-            <p>2. Explain IaaS, PaaS, SaaS.</p>
-            <p class="answer">Answer: Infrastructure, Platform, Software as a Service.</p>
-        </div>
-        <div class="question">
-            <p>3. What is auto-scaling?</p>
-            <p class="answer">Answer: Automatically adjusting resources based on demand.</p>
-        </div>
-        <div class="question">
-            <p>4. What is a load balancer?</p>
-            <p class="answer">Answer: Distributes traffic across servers.</p>
-        </div>
-        <div class="question">
-            <p>5. Explain cloud migration.</p>
-            <p class="answer">Answer: Moving applications and data to the cloud.</p>
-        </div>
-        <div class="question">
-            <p>6. What is multi-cloud strategy?</p>
-            <p class="answer">Answer: Using multiple cloud providers.</p>
-        </div>
-        <div class="question">
-            <p>7. What is containerization?</p>
-            <p class="answer">Answer: Packaging applications with dependencies, e.g., Docker.</p>
-        </div>
-        <div class="question">
-            <p>8. Explain microservices architecture.</p>
-            <p class="answer">Answer: Breaking applications into small, independent services.</p>
-        </div>
-        <div class="question">
-            <p>9. What is DevOps?</p>
-            <p class="answer">Answer: Practices combining development and operations.</p>
-        </div>
-        <div class="question">
-            <p>10. What is cloud security?</p>
-            <p class="answer">Answer: Protecting data and applications in the cloud.</p>
-        </div>
-        <p><a href="../index.html">Back to Home</a></p>
-    </div>
-    </div>
-    <footer>
-        &copy; 2025 Thop Thiru Tech Institute. All rights reserved.
-    </footer>
+
+<header>
+    <h1>Cloud Computing MCQs</h1>
+</header>
+
+<!-- ===== SIDE NAV BUTTONS ===== -->
+<div class="sidebar">
+    <a href="../index.html">🏠 Home</a>
+    <a href="web-dev.html">🌐 Web Development</a>
+    <a href="data-science.html">📊 Data Science</a>
+    <a href="ai-ml.html">🤖 AI & ML</a>
+    <a href="cloud-computing.html">☁ Cloud Computing</a>
+    <a href="java-interview.html">☕ Java Interview</a>
+    <a href="full-stack-java.html">🚀 Full Stack Java</a>
+    <a href="spring-boot.html">🌱 Spring Boot</a>
+    <a href="microservices.html">🧩 Microservices</a>
+    <a href="devops.html">⚙ DevOps</a>
+</div>
+
+<!-- ===== CONTENT ===== -->
+<div class="main">
+<div class="container">
+
+<p>Test your knowledge with these multiple-choice questions on Cloud Computing.</p>
+
+<div class="question">
+<p>1. What is cloud computing?</p>
+<div class="options">
+<p>a) Storing data on local servers</p>
+<p>b) Delivering computing services over the internet</p>
+<p>c) Using physical hardware only</p>
+</div>
+<p class="answer">Answer: b) Delivering computing services over the internet</p>
+</div>
+
+<div class="question">
+<p>2. Which is a major cloud service provider?</p>
+<div class="options">
+<p>a) AWS</p>
+<p>b) Microsoft Office</p>
+<p>c) Adobe Photoshop</p>
+</div>
+<p class="answer">Answer: a) AWS</p>
+</div>
+
+<div class="question">
+<p>3. What does IaaS stand for?</p>
+<p class="answer">Answer: Infrastructure as a Service</p>
+</div>
+
+<div class="question">
+<p>4. Which AWS service is for storage?</p>
+<p class="answer">Answer: Amazon S3</p>
+</div>
+
+<h2>Interview Questions</h2>
+
+<div class="question">
+<p>What are the benefits of cloud computing?</p>
+<p class="answer">Scalability, cost-efficiency, flexibility</p>
+</div>
+
+<div class="question">
+<p>Explain IaaS, PaaS, SaaS</p>
+<p class="answer">Infrastructure, Platform, Software as a Service</p>
+</div>
+
+</div>
+</div>
+
+<footer>
+© 2025 Thop Thiru Tech Institute
+</footer>
+
 </body>
 </html>

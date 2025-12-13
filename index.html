@@ -1,188 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thop Thiru Tech Institute for IT Course</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to bottom, #05f31107, #13c93b);
-            color: #fff;
-            text-align: center;
-        }
-        header {
-            background-color: #333;
-            padding: 20px;
-            color: #fff;
-        }
-        h1 {
-            color: #ffd700;
-            font-size: 2.5em;
-            margin: 0;
-        }
-        .sidebar {
-            height: 100%;
-            width: 200px;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: #111;
-            overflow-x: hidden;
-            padding-top: 20px;
-            margin-top: 80px;
-        }
-        .sidebar a {
-            padding: 6px 8px 6px 16px;
-            text-decoration: none;
-            font-size: 20px;
-            color: #818181;
-            display: block;
-        }
-        .sidebar a:hover {
-            color: #f1f1f1;
-        }
-        .main {
-            margin-left: 200px;
-            padding: 0px 10px;
-        }
-        @media screen and (max-width: 768px) {
-            .sidebar {
-                display: none;
-            }
-            .main {
-                margin-left: 0;
-            }
-        }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            color: #333;
-        }
-        p {
-            font-size: 18px;
-            line-height: 1.6;
-        }
-        .courses {
-            margin: 20px 0;
-        }
-        .course {
-            display: inline-block;
-            background: #4caf50;
-            color: #fff;
-            padding: 10px 20px;
-            margin: 10px;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-        .course:hover {
-            background: #45a049;
-        }
-        .course-content {
-            text-align: left;
-            margin: 20px 0;
-        }
-        .course-item {
-            background: #f9f9f9;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border-left: 5px solid #4caf50;
-        }
-        .course-item h3 {
-            margin-top: 0;
-            color: #333;
-        }
-        footer {
-            background-color: #333;
-            padding: 10px;
-            color: #fff;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thop Thiru Tech Institute</title>
+
+<style>
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #05f31120, #13c93b);
+    color: #333;
+}
+
+/* ===== HEADER ===== */
+header {
+    background: #222;
+    color: #ffd700;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header-subjects {
+    font-size: 14px;
+    color: #fff;
+    margin-top: 8px;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    position: fixed;
+    top: 90px;
+    left: 0;
+    width: 220px;
+    height: calc(100% - 90px);
+    background: #1e1e1e;
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Sidebar Buttons */
+.sidebar a {
+    text-decoration: none;
+    background: #333;
+    color: #fff;
+    padding: 12px;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* Hover */
+.sidebar a:hover {
+    background: #13c93b;
+    transform: translateX(6px);
+}
+
+/* Active */
+.sidebar a.active {
+    background: #ffd700;
+    color: #000;
+}
+
+/* ===== MAIN ===== */
+.main {
+    margin-left: 240px;
+    padding: 130px 20px 90px;
+}
+
+/* Container */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+/* Course Buttons */
+.courses {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.course {
+    display: inline-block;
+    background: #4caf50;
+    color: #fff;
+    padding: 10px 18px;
+    margin: 8px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.course:hover {
+    background: #43a047;
+}
+
+/* Table */
+.courses-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.courses-table th,
+.courses-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.courses-table thead {
+    background: #4caf50;
+    color: #fff;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* ===== MOBILE VIEW ===== */
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+    .main {
+        margin-left: 0;
+        padding-top: 130px;
+    }
+}
+</style>
 </head>
+
 <body>
-    <header>
-        <h1>Welcome to Thop Thiru Tech Institute</h1>
-    </header>
-    <div class="sidebar">
-        <a href="#home">Home</a>
-        <a href="courses/web-dev.html">Web Development</a>
-        <a href="courses/data-science.html">Data Science</a>
-        <a href="courses/cybersecurity.html">Cybersecurity</a>
-        <a href="courses/ai-ml.html">AI & Machine Learning</a>
-        <a href="courses/cloud-computing.html">Cloud Computing</a>
-        <a href="courses/mobile-dev.html">Mobile Development</a>
-        <a href="courses/java-interview.html">Java Interview</a>
-        <a href="courses/full-stack-java.html">Full Stack Java</a>
+
+<!-- ===== HEADER ===== -->
+<header>
+    <h1>Welcome to Thop Thiru Tech Institute</h1>
+    <div class="header-subjects">
+        HTML, CSS, JavaScript, React, Node.js, Python, Data Science, AI, Cloud, Mobile, Java
     </div>
-    <div class="main">
-        <div class="container" id="home">
-            <p>We offer top-notch IT courses to help you build your career in technology.</p>
-            <div class="courses">
-                <a href="courses/web-dev.html" class="course">Web Development</a>
-                <a href="courses/data-science.html" class="course">Data Science</a>
-                <a href="courses/cybersecurity.html" class="course">Cybersecurity</a>
-                <a href="courses/ai-ml.html" class="course">AI & Machine Learning</a>
-                <a href="courses/cloud-computing.html" class="course">Cloud Computing</a>
-                <a href="courses/mobile-dev.html" class="course">Mobile Development</a>
-                <a href="courses/java-interview.html" class="course">Java Interview</a>
-                <a href="courses/full-stack-java.html" class="course">Full Stack Java</a>
-            </div>
-        <div class="course-content">
-            <div id="web-dev" class="course-item">
-                <h3>Web Development</h3>
-                <p>Learn HTML, CSS, JavaScript, and frameworks like React and Node.js to build modern websites and web applications.</p>
-                <p>Duration: 6 months | Fee: Rs. 15,000</p>
-            </div>
-            <div id="data-science" class="course-item">
-                <h3>Data Science</h3>
-                <p>Master Python, R, SQL, and tools like Pandas and TensorFlow for data analysis and visualization.</p>
-                <p>Duration: 8 months | Fee: Rs. 40,000</p>
-            </div>
-            <div id="cybersecurity" class="course-item">
-                <h3>Cybersecurity</h3>
-                <p>Understand network security, ethical hacking, and tools to protect systems from cyber threats.</p>
-                <p>Duration: 5 months | Fee: Rs. 25,000</p>
-            </div>
-            <div id="ai-ml" class="course-item">
-                <h3>AI & Machine Learning</h3>
-                <p>Explore algorithms, neural networks, and applications in AI using Python and libraries like Scikit-learn.</p>
-                <p>Duration: 7 months | Fee: Rs. 50,000</p>
-            </div>
-            <div id="cloud-computing" class="course-item">
-                <h3>Cloud Computing</h3>
-                <p>Learn AWS, Azure, and Google Cloud for deploying and managing applications in the cloud.</p>
-                <p>Duration: 4 months | Fee: Rs. 30,000</p>
-            </div>
-            <div id="mobile-dev" class="course-item">
-                <h3>Mobile Development</h3>
-                <p>Develop apps for iOS and Android using Swift, Kotlin, and frameworks like Flutter.</p>
-                <p>Duration: 6 months | Fee: Rs. 25,000</p>
-            </div>
-            <div id="java-interview" class="course-item">
-                <h3>Java Interview</h3>
-                <p>Prepare for Java interviews with 100 common questions and answers.</p>
-                <p>Duration: 2 months | Fee: Rs. 10,000</p>
-            </div>
-            <div id="full-stack-java" class="course-item">
-                <h3>Full Stack Java</h3>
-                <p>Build complete applications with Java backend and frontend technologies.</p>
-                <p>Duration: 9 months | Fee: Rs. 45,000</p>
-            </div>
-        </div>
-        <p>Contact us at: <a href="mailto:info@thirutech.com" style="color: #4caf50;">info@thirutech.com</a></p>
-    </div>
-    <footer>
-        &copy; 2025 Thop Thiru Tech Institute. All rights reserved.
-    </footer>
+</header>
+
+<!-- ===== SIDEBAR ===== -->
+<div class="sidebar">
+    <a href="#home" class="active">🏠 Home</a>
+    <a href="courses/web-dev.html">🌐 Web Development</a>
+    <a href="courses/data-science.html">📊 Data Science</a>
+    <a href="courses/cybersecurity.html">🔐 Cybersecurity</a>
+    <a href="courses/ai-ml.html">🤖 AI & ML</a>
+    <a href="courses/cloud-computing.html">☁️ Cloud Computing</a>
+    <a href="courses/mobile-dev.html">📱 Mobile Development</a>
+    <a href="courses/java-interview.html">☕ Java Interview</a>
+    <a href="courses/full-stack-java.html">🧩 Full Stack Java</a>
+</div>
+
+<!-- ===== MAIN ===== -->
+<div class="main">
+<div class="container" id="home">
+
+<p>
+We offer top-notch IT courses to help you build a successful career in technology.
+</p>
+
+<div class="courses">
+    <a href="courses/web-dev.html" class="course">Web Development</a>
+    <a href="courses/data-science.html" class="course">Data Science</a>
+    <a href="courses/cybersecurity.html" class="course">Cybersecurity</a>
+    <a href="courses/ai-ml.html" class="course">AI & ML</a>
+    <a href="courses/cloud-computing.html" class="course">Cloud Computing</a>
+    <a href="courses/mobile-dev.html" class="course">Mobile Development</a>
+    <a href="courses/java-interview.html" class="course">Java Interview</a>
+    <a href="courses/full-stack-java.html" class="course">Full Stack Java</a>
+</div>
+
+<table class="courses-table">
+<thead>
+<tr>
+    <th>Course</th>
+    <th>Duration</th>
+    <th>Fee</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Web Development</td><td>6 months</td><td>₹15,000</td></tr>
+<tr><td>Data Science</td><td>8 months</td><td>₹40,000</td></tr>
+<tr><td>Cybersecurity</td><td>5 months</td><td>₹25,000</td></tr>
+<tr><td>AI & ML</td><td>7 months</td><td>₹50,000</td></tr>
+<tr><td>Cloud Computing</td><td>4 months</td><td>₹30,000</td></tr>
+<tr><td>Mobile Development</td><td>6 months</td><td>₹25,000</td></tr>
+<tr><td>Java Interview</td><td>2 months</td><td>₹10,000</td></tr>
+<tr><td>Full Stack Java</td><td>9 months</td><td>₹45,000</td></tr>
+</tbody>
+</table>
+
+</div>
+</div>
+
+<footer>
+© 2025 Thop Thiru Tech Institute. All rights reserved.
+</footer>
+
 </body>
 </html>

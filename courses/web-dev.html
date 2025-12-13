@@ -1,158 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Development Interview Questions - Thop Thiru Tech Institute</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to bottom, #ff7e5f, #feb47b);
-            color: #fff;
-            text-align: center;
-        }
-        header {
-            background-color: #333;
-            padding: 20px;
-            color: #fff;
-        }
-        h1 {
-            color: #ffd700;
-            font-size: 2.5em;
-            margin: 0;
-        }
-        .sidebar {
-            height: 100%;
-            width: 200px;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: #111;
-            overflow-x: hidden;
-            padding-top: 20px;
-            margin-top: 80px;
-        }
-        .sidebar a {
-            padding: 6px 8px 6px 16px;
-            text-decoration: none;
-            font-size: 20px;
-            color: #818181;
-            display: block;
-        }
-        .sidebar a:hover {
-            color: #f1f1f1;
-        }
-        .main {
-            margin-left: 200px;
-            padding: 0px 10px;
-        }
-        @media screen and (max-width: 768px) {
-            .sidebar {
-                display: none;
-            }
-            .main {
-                margin-left: 0;
-            }
-        }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            color: #333;
-            text-align: left;
-        }
-        .question {
-            margin: 20px 0;
-            padding: 10px;
-            background: #f9f9f9;
-            border-radius: 5px;
-        }
-        .options {
-            margin-left: 20px;
-        }
-        .answer {
-            font-weight: bold;
-            color: #4caf50;
-        }
-        footer {
-            background-color: #333;
-            padding: 10px;
-            color: #fff;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Development Interview Questions</title>
+
+<style>
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #ff7e5f, #feb47b);
+    color: #333;
+}
+
+/* ===== HEADER ===== */
+header {
+    background: #222;
+    color: #ffd700;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 220px;
+    height: calc(100% - 80px);
+    background: #1e1e1e;
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Sidebar Buttons */
+.sidebar a {
+    text-decoration: none;
+    background: #333;
+    color: #fff;
+    padding: 12px;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+.sidebar a:hover {
+    background: #ff7e5f;
+    transform: translateX(6px);
+}
+
+/* Active Page */
+.sidebar a.active {
+    background: #ffd700;
+    color: #000;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main {
+    margin-left: 240px;
+    padding: 120px 20px 80px;
+}
+
+/* Content Box */
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+/* Questions */
+.question {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.answer {
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* ===== MOBILE VIEW ===== */
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+
+    .main {
+        margin-left: 0;
+        padding-top: 120px;
+    }
+}
+</style>
 </head>
+
 <body>
-    <header>
-        <h1>Web Development Interview Questions</h1>
-    </header>
-    <div class="sidebar">
-        <a href="../index.html">Home</a>
-        <a href="web-dev.html">Web Development</a>
-        <a href="data-science.html">Data Science</a>
-        <a href="cybersecurity.html">Cybersecurity</a>
-        <a href="ai-ml.html">AI & Machine Learning</a>
-        <a href="cloud-computing.html">Cloud Computing</a>
-        <a href="mobile-dev.html">Mobile Development</a>
-        <a href="java-interview.html">Java Interview</a>
-        <a href="full-stack-java.html">Full Stack Java</a>
-    </div>
-    <div class="main">
-        <div class="container">
-        <p>Here are common interview questions on Web Development.</p>
+
+<header>
+    <h1>Web Development Interview Questions</h1>
+</header>
+
+<!-- ===== SIDEBAR ===== -->
+<div class="sidebar">
+    <a href="../index.html">🏠 Home</a>
+    <a href="web-dev.html" class="active">🌐 Web Development</a>
+    <a href="data-science.html">📊 Data Science</a>
+    <a href="cybersecurity.html">🔐 Cybersecurity</a>
+    <a href="ai-ml.html">🤖 AI & ML</a>
+    <a href="cloud-computing.html">☁️ Cloud Computing</a>
+    <a href="mobile-dev.html">📱 Mobile Development</a>
+    <a href="java-interview.html">☕ Java Interview</a>
+    <a href="full-stack-java.html">🧩 Full Stack Java</a>
+</div>
+
+
+<!-- ===== MAIN ===== -->
+<div class="main">
+    <div class="container">
         <h2>Interview Questions</h2>
+        <br>
+
         <div class="question">
             <p>1. What is the difference between HTML and XHTML?</p>
-            <p class="answer">Answer: XHTML is stricter XML-based HTML.</p>
+            <p class="answer">Answer: XHTML is stricter and XML-based.</p>
         </div>
+
         <div class="question">
             <p>2. Explain CSS specificity.</p>
-            <p class="answer">Answer: Rules for determining which CSS rule applies.</p>
+            <p class="answer">Answer: Rules that determine which CSS applies.</p>
         </div>
+
         <div class="question">
             <p>3. What is responsive design?</p>
-            <p class="answer">Answer: Design that adapts to different screen sizes.</p>
+            <p class="answer">Answer: Design adapts to screen sizes.</p>
         </div>
+
         <div class="question">
             <p>4. What is AJAX?</p>
-            <p class="answer">Answer: Asynchronous JavaScript and XML for dynamic content.</p>
+            <p class="answer">Answer: Async communication with server.</p>
         </div>
+
         <div class="question">
-            <p>5. Explain the box model in CSS.</p>
+            <p>5. Explain CSS box model.</p>
             <p class="answer">Answer: Content, padding, border, margin.</p>
         </div>
-        <div class="question">
-            <p>6. What is a closure in JavaScript?</p>
-            <p class="answer">Answer: Function that remembers its lexical scope.</p>
-        </div>
-        <div class="question">
-            <p>7. What is event bubbling?</p>
-            <p class="answer">Answer: Event propagates up the DOM tree.</p>
-        </div>
-        <div class="question">
-            <p>8. What is CORS?</p>
-            <p class="answer">Answer: Cross-Origin Resource Sharing policy.</p>
-        </div>
-        <div class="question">
-            <p>9. Explain RESTful APIs.</p>
-            <p class="answer">Answer: APIs following REST principles.</p>
-        </div>
-        <div class="question">
-            <p>10. What is version control?</p>
-            <p class="answer">Answer: Tracking changes in code, e.g., Git.</p>
-        </div>
-        <p><a href="../index.html">Back to Home</a></p>
+
     </div>
-    </div>
-    <footer>
-        &copy; 2025 Thop Thiru Tech Institute. All rights reserved.
-    </footer>
+</div>
+
+<footer>
+    © 2025 Thop Thiru Tech Institute
+</footer>
+
 </body>
 </html>

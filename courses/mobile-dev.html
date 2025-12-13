@@ -1,248 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Development MCQs - Thop Thiru Tech Institute</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to bottom, #ff7e5f, #feb47b);
-            color: #fff;
-            text-align: center;
-        }
-        header {
-            background-color: #333;
-            padding: 20px;
-            color: #fff;
-        }
-        h1 {
-            color: #ffd700;
-            font-size: 2.5em;
-            margin: 0;
-        }
-        .sidebar {
-            height: 100%;
-            width: 200px;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: #111;
-            overflow-x: hidden;
-            padding-top: 20px;
-            margin-top: 80px;
-        }
-        .sidebar a {
-            padding: 6px 8px 6px 16px;
-            text-decoration: none;
-            font-size: 20px;
-            color: #818181;
-            display: block;
-        }
-        .sidebar a:hover {
-            color: #f1f1f1;
-        }
-        .main {
-            margin-left: 200px;
-            padding: 0px 10px;
-        }
-        @media screen and (max-width: 768px) {
-            .sidebar {
-                display: none;
-            }
-            .main {
-                margin-left: 0;
-            }
-        }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            color: #333;
-            text-align: left;
-        }
-        .question {
-            margin: 20px 0;
-            padding: 10px;
-            background: #f9f9f9;
-            border-radius: 5px;
-        }
-        .options {
-            margin-left: 20px;
-        }
-        .answer {
-            font-weight: bold;
-            color: #4caf50;
-        }
-        footer {
-            background-color: #333;
-            padding: 10px;
-            color: #fff;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobile Development MCQs</title>
+
+<style>
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #ff7e5f, #feb47b);
+    color: #333;
+}
+
+/* ===== HEADER ===== */
+header {
+    background: #222;
+    color: #ffd700;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 220px;
+    height: calc(100% - 80px);
+    background: #1e1e1e;
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Sidebar Buttons */
+.sidebar a {
+    text-decoration: none;
+    background: #333;
+    color: #fff;
+    padding: 12px;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+.sidebar a:hover {
+    background: #ff7e5f;
+    transform: translateX(6px);
+}
+
+/* Active Menu */
+.sidebar a.active {
+    background: #ffd700;
+    color: #000;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main {
+    margin-left: 240px;
+    padding: 120px 20px 80px;
+}
+
+/* Content Card */
+.container {
+    max-width: 950px;
+    margin: auto;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+/* Questions */
+.question {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.options p {
+    margin-left: 15px;
+}
+
+.answer {
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* ===== MOBILE VIEW ===== */
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+    .main {
+        margin-left: 0;
+        padding-top: 120px;
+    }
+}
+</style>
 </head>
+
 <body>
-    <header>
-        <h1>Mobile Development MCQs</h1>
-    </header>
-    <div class="sidebar">
-        <a href="../index.html">Home</a>
-        <a href="web-dev.html">Web Development</a>
-        <a href="data-science.html">Data Science</a>
-        <a href="cybersecurity.html">Cybersecurity</a>
-        <a href="ai-ml.html">AI & Machine Learning</a>
-        <a href="cloud-computing.html">Cloud Computing</a>
-        <a href="mobile-dev.html">Mobile Development</a>
-        <a href="java-interview.html">Java Interview</a>
-        <a href="full-stack-java.html">Full Stack Java</a>
+
+<header>
+    <h1>Mobile Development MCQs</h1>
+</header>
+
+<!-- ===== SIDEBAR ===== -->
+<div class="sidebar">
+    <a href="../index.html">🏠 Home</a>
+    <a href="web-dev.html">🌐 Web Development</a>
+    <a href="mobile-dev.html" class="active">📱 Mobile Development</a>
+    <a href="java-interview.html">☕ Java Interview</a>
+    <a href="full-stack-java.html">🧩 Full Stack Java</a>
+    <a href="data-science.html">📊 Data Science</a>
+    <a href="cybersecurity.html">🔐 Cybersecurity</a>
+    <a href="cloud-computing.html">☁️ Cloud Computing</a>
+    <a href="ai-ml.html">🤖 AI & ML</a>
+</div>
+
+<!-- ===== MAIN ===== -->
+<div class="main">
+<div class="container">
+
+<p>Test your knowledge with these MCQs on Mobile Development.</p>
+<br>
+
+<h2>MCQs</h2>
+<br>
+
+<div class="question">
+    <p>1. Which language is used for Android development?</p>
+    <div class="options">
+        <p>a) Swift</p>
+        <p>b) Kotlin</p>
+        <p>c) Objective-C</p>
     </div>
-    <div class="main">
-        <div class="container">
-        <p>Test your knowledge with these multiple-choice questions on Mobile Development.</p>
-        <div class="question">
-            <p>1. Which language is used for Android development?</p>
-            <div class="options">
-                <p>a) Swift</p>
-                <p>b) Kotlin</p>
-                <p>c) Objective-C</p>
-            </div>
-            <p class="answer">Answer: b) Kotlin</p>
-        </div>
-        <div class="question">
-            <p>2. What is Flutter?</p>
-            <div class="options">
-                <p>a) A database</p>
-                <p>b) A UI toolkit for cross-platform apps</p>
-                <p>c) A server framework</p>
-            </div>
-            <p class="answer">Answer: b) A UI toolkit for cross-platform apps</p>
-        </div>
-        <div class="question">
-            <p>3. Which is used for iOS development?</p>
-            <div class="options">
-                <p>a) Java</p>
-                <p>b) Swift</p>
-                <p>c) Python</p>
-            </div>
-            <p class="answer">Answer: b) Swift</p>
-        </div>
-        <div class="question">
-            <p>4. What is APK in Android?</p>
-            <div class="options">
-                <p>a) Application Package</p>
-                <p>b) Android Package Kit</p>
-                <p>c) App Programming Key</p>
-            </div>
-            <p class="answer">Answer: b) Android Package Kit</p>
-        </div>
-        <div class="question">
-            <p>5. Which framework is for React Native?</p>
-            <div class="options">
-                <p>a) Angular</p>
-                <p>b) Vue.js</p>
-                <p>c) React</p>
-            </div>
-            <p class="answer">Answer: c) React</p>
-        </div>
-        <div class="question">
-            <p>6. What is Xcode used for?</p>
-            <div class="options">
-                <p>a) Android development</p>
-                <p>b) iOS development</p>
-                <p>c) Web development</p>
-            </div>
-            <p class="answer">Answer: b) iOS development</p>
-        </div>
-        <div class="question">
-            <p>7. What is an emulator in mobile development?</p>
-            <div class="options">
-                <p>a) A physical device</p>
-                <p>b) Software that mimics a mobile device</p>
-                <p>c) A programming language</p>
-            </div>
-            <p class="answer">Answer: b) Software that mimics a mobile device</p>
-        </div>
-        <div class="question">
-            <p>8. Which is a popular Android IDE?</p>
-            <div class="options">
-                <p>a) Xcode</p>
-                <p>b) Android Studio</p>
-                <p>c) Visual Studio Code</p>
-            </div>
-            <p class="answer">Answer: b) Android Studio</p>
-        </div>
-        <div class="question">
-            <p>9. What is a widget in mobile apps?</p>
-            <div class="options">
-                <p>a) A small interactive component on the home screen</p>
-                <p>b) A full application</p>
-                <p>c) A database table</p>
-            </div>
-            <p class="answer">Answer: a) A small interactive component on the home screen</p>
-        </div>
-        <div class="question">
-            <p>10. What is app store optimization (ASO)?</p>
-            <div class="options">
-                <p>a) Optimizing app performance</p>
-                <p>b) Optimizing app visibility in app stores</p>
-                <p>c) Optimizing app design</p>
-            </div>
-            <p class="answer">Answer: b) Optimizing app visibility in app stores</p>
-        </div>
-        <h2>Interview Questions</h2>
-        <div class="question">
-            <p>1. What is the difference between native and hybrid apps?</p>
-            <p class="answer">Answer: Native for specific platform, hybrid use web tech in native shell.</p>
-        </div>
-        <div class="question">
-            <p>2. Explain the app lifecycle in Android.</p>
-            <p class="answer">Answer: onCreate, onStart, onResume, etc.</p>
-        </div>
-        <div class="question">
-            <p>3. What is a fragment in Android?</p>
-            <p class="answer">Answer: Reusable UI component.</p>
-        </div>
-        <div class="question">
-            <p>4. What is SwiftUI?</p>
-            <p class="answer">Answer: Declarative UI framework for iOS.</p>
-        </div>
-        <div class="question">
-            <p>5. Explain push notifications.</p>
-            <p class="answer">Answer: Messages sent to app users.</p>
-        </div>
-        <div class="question">
-            <p>6. What is app signing?</p>
-            <p class="answer">Answer: Process to verify app authenticity.</p>
-        </div>
-        <div class="question">
-            <p>7. What is a mobile API?</p>
-            <p class="answer">Answer: Interface for app to communicate with servers.</p>
-        </div>
-        <div class="question">
-            <p>8. Explain in-app purchases.</p>
-            <p class="answer">Answer: Buying content within the app.</p>
-        </div>
-        <div class="question">
-            <p>9. What is mobile testing?</p>
-            <p class="answer">Answer: Testing apps on devices and emulators.</p>
-        </div>
-        <div class="question">
-            <p>10. What is app monetization?</p>
-            <p class="answer">Answer: Ways to earn money from apps, like ads or subscriptions.</p>
-        </div>
-        <p><a href="../index.html">Back to Home</a></p>
+    <p class="answer">Answer: b) Kotlin</p>
+</div>
+
+<div class="question">
+    <p>2. What is Flutter?</p>
+    <div class="options">
+        <p>a) A database</p>
+        <p>b) A UI toolkit for cross-platform apps</p>
+        <p>c) A server framework</p>
     </div>
+    <p class="answer">Answer: b) A UI toolkit for cross-platform apps</p>
+</div>
+
+<div class="question">
+    <p>3. Which is used for iOS development?</p>
+    <div class="options">
+        <p>a) Java</p>
+        <p>b) Swift</p>
+        <p>c) Python</p>
     </div>
-    <footer>
-        &copy; 2025 Thop Thiru Tech Institute. All rights reserved.
-    </footer>
+    <p class="answer">Answer: b) Swift</p>
+</div>
+
+<div class="question">
+    <p>4. What is APK in Android?</p>
+    <div class="options">
+        <p>a) Application Package</p>
+        <p>b) Android Package Kit</p>
+        <p>c) App Programming Key</p>
+    </div>
+    <p class="answer">Answer: b) Android Package Kit</p>
+</div>
+
+<div class="question">
+    <p>5. Which framework is for React Native?</p>
+    <div class="options">
+        <p>a) Angular</p>
+        <p>b) Vue.js</p>
+        <p>c) React</p>
+    </div>
+    <p class="answer">Answer: c) React</p>
+</div>
+
+<h2>Interview Questions</h2>
+<br>
+
+<div class="question">
+    <p>1. Difference between native and hybrid apps?</p>
+    <p class="answer">Answer: Native apps are platform-specific, hybrid use web tech.</p>
+</div>
+
+<div class="question">
+    <p>2. Explain Android app lifecycle.</p>
+    <p class="answer">Answer: onCreate, onStart, onResume, onPause, onStop.</p>
+</div>
+
+<div class="question">
+    <p>3. What is a fragment?</p>
+    <p class="answer">Answer: Reusable UI component.</p>
+</div>
+
+<div class="question">
+    <p>4. What is SwiftUI?</p>
+    <p class="answer">Answer: Declarative UI framework for iOS.</p>
+</div>
+
+<div class="question">
+    <p>5. Explain push notifications.</p>
+    <p class="answer">Answer: Messages sent to users from server.</p>
+</div>
+
+</div>
+</div>
+
+<footer>
+    © 2025 Thop Thiru Tech Institute. All rights reserved.
+</footer>
+
 </body>
 </html>
