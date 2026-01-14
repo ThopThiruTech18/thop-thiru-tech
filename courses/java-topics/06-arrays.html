@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Arrays</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3 {
+            background-color: #e0f7fa;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        h4 {
+            background-color: #fce4ec;
+            padding: 8px;
+            border-radius: 5px;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid #2196f3;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        hr {
+            border: 0;
+            border-top: 2px solid #ccc;
+            margin: 20px 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 24px;
+            background: #f7fff8;
+            color: #042e1f;
+        }
+
+        .card {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(2, 20, 40, 0.05);
+        }
+
+        a {
+            color: #0b8a3f;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1>Java Arrays (Zero → Hero)</h1>
+
+        <hr>
+
+        <h2>Zero Level – Basics</h2>
+
+        <h3>What is an Array?</h3>
+        <p>An array is a collection of similar type values stored in continuous memory.</p>
+        <pre><code>int[] numbers = {10, 20, 30, 40};</code></pre>
+        <ul>
+            <li>📌 All values must be of the same data type</li>
+            <li>📌 Array size is fixed</li>
+            <li>📌 Index starts from 0</li>
+        </ul>
+
+        <h4>Why Arrays?</h4>
+        <ul>
+            <li>✔ Store multiple values using one variable</li>
+            <li>✔ Easy access using index</li>
+            <li>✔ Improves performance</li>
+        </ul>
+
+        <hr>
+
+        <h3>Types of Arrays in Java</h3>
+        <ol>
+            <li>One-Dimensional Array</li>
+            <li>Two-Dimensional Array</li>
+            <li>Multi-Dimensional Array</li>
+        </ol>
+
+        <hr>
+
+        <h2>1️⃣ One-Dimensional Array</h2>
+
+        <h4>Declaration</h4>
+        <pre><code>int[] a;</code></pre>
+
+        <h4>Creation</h4>
+        <pre><code>a = new int[5];</code></pre>
+
+        <h4>Initialization</h4>
+        <pre><code>a[0] = 10;
+a[1] = 20;</code></pre>
+        <p><strong>OR (Shortcut)</strong></p>
+        <pre><code>int[] a = {10, 20, 30, 40};</code></pre>
+
+        <h4>Accessing Array Elements</h4>
+        <pre><code>System.out.println(a[0]); // 10</code></pre>
+
+        <h4>Traversing Array (for loop)</h4>
+        <pre><code>for (int i = 0; i < a.length; i++) {
+    System.out.println(a[i]);
+}</code></pre>
+
+        <h4>Traversing Array (for-each)</h4>
+        <pre><code>for (int n : a) {
+    System.out.println(n);
+}</code></pre>
+
+        <h4>Important Array Properties</h4>
+        <pre><code>System.out.println(a.length);</code></pre>
+        <p>📌 <code>length</code> → Property (not method)</p>
+
+        <hr>
+
+        <h2>2️⃣ Two-Dimensional Array (Matrix)</h2>
+
+        <h4>Declaration & Initialization</h4>
+        <pre><code>int[][] matrix = {
+    {1, 2, 3},
+    {4, 5, 6}
+};</code></pre>
+
+        <h4>Access Element</h4>
+        <pre><code>System.out.println(matrix[1][2]); // 6</code></pre>
+
+        <h4>Traversing 2D Array</h4>
+        <pre><code>for (int i = 0; i < matrix.length; i++) {
+    for (int j = 0; j < matrix[i].length; j++) {
+        System.out.print(matrix[i][j] + " ");
+    }
+    System.out.println();
+}</code></pre>
+
+        <hr>
+
+        <h2>3️⃣ Multi-Dimensional Array</h2>
+        <pre><code>int[][][] arr = new int[2][2][2];</code></pre>
+        <p>📌 Rarely used in real projects</p>
+
+        <hr>
+
+        <h2>Array Memory Concept</h2>
+        <pre><code>int[] a = new int[3];</code></pre>
+        <ul>
+            <li>📌 Array is an object</li>
+            <li>📌 Stored in Heap memory</li>
+            <li>📌 Reference stored in stack</li>
+        </ul>
+
+        <hr>
+
+        <h2>Common Array Programs (Interview ⭐⭐⭐)</h2>
+
+        <h4>Find Sum of Elements</h4>
+        <pre><code>int[] a = {10, 20, 30};
+int sum = 0;
+
+for (int n : a) {
+    sum += n;
+}
+
+System.out.println(sum);</code></pre>
+
+        <h4>Find Largest Element</h4>
+        <pre><code>int[] a = {10, 5, 30, 20};
+int max = a[0];
+
+for (int i = 1; i < a.length; i++) {
+    if (a[i] > max) {
+        max = a[i];
+    }
+}
+
+System.out.println(max);</code></pre>
+
+        <h4>Reverse an Array</h4>
+        <pre><code>int[] a = {1, 2, 3};
+for (int i = a.length - 1; i >= 0; i--) {
+    System.out.println(a[i]);
+}</code></pre>
+
+        <h4>Search an Element</h4>
+        <pre><code>int[] a = {10, 20, 30};
+int key = 20;
+boolean found = false;
+
+for (int n : a) {
+    if (n == key) {
+        found = true;
+        break;
+    }
+}
+
+System.out.println(found);</code></pre>
+
+        <hr>
+
+        <h2>Advanced (Hero Level)</h2>
+
+        <h4>Arrays Class (java.util.Arrays)</h4>
+        <pre><code>import java.util.Arrays;
+
+int[] a = {3, 1, 2};
+
+Arrays.sort(a);
+System.out.println(Arrays.toString(a));</code></pre>
+
+        <h4>Copy Array</h4>
+        <pre><code>int[] copy = Arrays.copyOf(a, a.length);</code></pre>
+
+        <h4>Compare Arrays</h4>
+        <pre><code>Arrays.equals(a, copy);</code></pre>
+
+        <h4>Convert Array → List</h4>
+        <pre><code>List<Integer> list = Arrays.asList(1, 2, 3);</code></pre>
+
+        <hr>
+
+        <h2>Arrays vs Collections (Important)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Array</th>
+                    <th>Collection</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Size</td>
+                    <td>Fixed</td>
+                    <td>Dynamic</td>
+                </tr>
+                <tr>
+                    <td>Data Types</td>
+                    <td>Same type</td>
+                    <td>Objects only</td>
+                </tr>
+                <tr>
+                    <td>Performance</td>
+                    <td>Fast</td>
+                    <td>Slightly slow</td>
+                </tr>
+                <tr>
+                    <td>Flexibility</td>
+                    <td>Less</td>
+                    <td>More</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h2>Real-Time Usage</h2>
+        <ul>
+            <li>✔ Store student marks</li>
+            <li>✔ Process API responses</li>
+            <li>✔ Image & file data</li>
+            <li>✔ Database result sets</li>
+        </ul>
+
+        <hr>
+
+        <h2>Interview One-Line Answers ⭐</h2>
+        <ul>
+            <li><strong>Array</strong> → Fixed-size collection</li>
+            <li><strong>Index</strong> → Starts from 0</li>
+            <li><strong>Stored</strong> → In Heap</li>
+            <li><strong>Traversal</strong> → Use for-each</li>
+        </ul>
+
+        <hr>
+
+        <h2>Final Summary (Hero Level)</h2>
+        <ul>
+            <li>✔ Arrays store similar data</li>
+            <li>✔ Size is fixed</li>
+            <li>✔ Faster than collections</li>
+            <li>✔ Foundation for Data Structures</li>
+        </ul>
+    </div>
+</body>
+
+</html>

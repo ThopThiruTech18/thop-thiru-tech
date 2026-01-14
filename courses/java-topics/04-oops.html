@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OOPS Concepts</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 24px;
+    background: #f4fbff;
+    color: #072a4b;
+}
+.card {
+    max-width: 900px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(2, 20, 40, 0.06);
+}
+h1, h2 {
+    color: #0b63ff;
+}
+pre {
+    background: #f3f7ff;
+    padding: 12px;
+    border-radius: 8px;
+    border-left: 4px solid #0b63ff;
+    overflow-x: auto;
+}
+ul {
+    margin: 8px 0 0 20px;
+}
+a {
+    color: #0b63ff;
+    text-decoration: none;
+    font-weight: 600;
+}
+a:hover {
+    text-decoration: underline;
+}
+</style>
+</head>
+<body>
+<div class="card">
+    <h1>OOPS Concepts (Zero → Hero)</h1>
+
+    <h2>🔰 ZERO LEVEL (Beginner)</h2>
+    <h3>❓ What is OOPS?</h3>
+    <p>OOPS is a programming style where we write code using objects that represent real-world things.</p>
+    <ul>
+        <li>Car 🚗</li>
+        <li>Student 🎓</li>
+        <li>Employee 👨‍💼</li>
+    </ul>
+    <p>Each object has:</p>
+    <ul>
+        <li><strong>Properties</strong> → data</li>
+        <li><strong>Behaviors</strong> → actions</li>
+    </ul>
+
+    <h3>🧩 Why OOPS?</h3>
+    <ul>
+        <li>✅ Code reusability</li>
+        <li>✅ Easy maintenance</li>
+        <li>✅ Real-world modeling</li>
+        <li>✅ Secure & scalable applications</li>
+    </ul>
+
+    <h2>🧱 BASIC BUILDING BLOCKS (Foundation)</h2>
+    <h3>1️⃣ Class</h3>
+    <p>A class is a blueprint.</p>
+    <pre><code>class Car {
+    String color;
+    int speed;
+
+    void drive() {
+        System.out.println("Car is driving");
+    }
+}</code></pre>
+
+    <h3>2️⃣ Object</h3>
+    <p>An object is a real instance of a class.</p>
+    <pre><code>Car c1 = new Car();
+c1.color = "Red";
+c1.drive();</code></pre>
+    <p><strong>📌 Class = Design</strong><br><strong>📌 Object = Real thing</strong></p>
+
+    <h2>🏗️ CORE PILLARS OF OOPS (MOST IMPORTANT)</h2>
+
+    <h3>1️⃣ Encapsulation 🔒 (DATA HIDING)</h3>
+    <p>Wrapping data + methods into a single unit (class) and hiding data.</p>
+    <p><strong>📌 Achieved using:</strong></p>
+    <ul>
+        <li>private variables</li>
+        <li>public getters & setters</li>
+    </ul>
+    <p><strong>🧠 Real-world example:</strong> ATM machine (You don’t access balance directly, you use options).</p>
+    <pre><code>class Bank {
+    private int balance = 10000;
+
+    public int getBalance() {
+        return balance;
+    }
+}</code></pre>
+
+    <h3>2️⃣ Inheritance 🔁 (CODE REUSABILITY)</h3>
+    <p>One class inherits properties of another class.</p>
+    <p><strong>📌 extends keyword</strong></p>
+    <p><strong>🧠 Real-world example:</strong> Dog is an Animal 🐶</p>
+    <pre><code>class Animal {
+    void eat() {
+        System.out.println("Eating...");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Barking...");
+    }
+}</code></pre>
+
+    <h3>3️⃣ Polymorphism 🎭 (ONE NAME, MANY FORMS)</h3>
+    <p>Same method name, different behavior.</p>
+    <p><strong>Types:</strong></p>
+    <ul>
+        <li>Compile-time (Method Overloading)</li>
+        <li>Runtime (Method Overriding)</li>
+    </ul>
+    <h4>🔹 Method Overloading</h4>
+    <pre><code>class Calculator {
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    double add(double a, double b) {
+        return a + b;
+    }
+}</code></pre>
+    <h4>🔹 Method Overriding</h4>
+    <pre><code>class Parent {
+    void show() {
+        System.out.println("Parent");
+    }
+}
+
+class Child extends Parent {
+    void show() {
+        System.out.println("Child");
+    }
+}</code></pre>
+
+    <h3>4️⃣ Abstraction 🎯 (HIDE IMPLEMENTATION)</h3>
+    <p>Show what to do, hide how to do.</p>
+    <p><strong>📌 Achieved using:</strong></p>
+    <ul>
+        <li>Abstract class</li>
+        <li>Interface</li>
+    </ul>
+    <p><strong>🧠 Real-world example:</strong> Driving a car 🚗 (You use accelerator, don’t know engine internals).</p>
+    <h4>🔹 Abstract Class</h4>
+    <pre><code>abstract class Vehicle {
+    abstract void start();
+}
+
+class Bike extends Vehicle {
+    void start() {
+        System.out.println("Bike started");
+    }
+}</code></pre>
+    <h4>🔹 Interface</h4>
+    <pre><code>interface Payment {
+    void pay();
+}
+
+class GPay implements Payment {
+    public void pay() {
+        System.out.println("Paid via GPay");
+    }
+}</code></pre>
+
+    <h2>🚀 ADVANCED OOPS (HERO LEVEL)</h2>
+
+    <h3>🔸 Association</h3>
+    <p>Relationship between objects.</p>
+    <pre><code>class Engine {}
+
+class Car {
+    Engine engine;
+}</code></pre>
+
+    <h3>🔸 Aggregation (HAS-A, Weak relationship)</h3>
+    <p><strong>👉 College has Students</strong></p>
+    <pre><code>class Student {}
+
+class College {
+    Student student;
+}</code></pre>
+
+    <h3>🔸 Composition (HAS-A, Strong relationship)</h3>
+    <p><strong>👉 House has Rooms</strong></p>
+    <pre><code>class Room {}
+
+class House {
+    Room room = new Room();
+}</code></pre>
+    <p><strong>📌 If House destroyed → Room destroyed</strong></p>
+
+    <h3>🔐 Access Modifiers</h3>
+    <table border="1" cellpadding="8" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Modifier</th>
+                <th>Same Class</th>
+                <th>Same Package</th>
+                <th>Subclass</th>
+                <th>Outside</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>private</td>
+                <td>✅</td>
+                <td>❌</td>
+                <td>❌</td>
+                <td>❌</td>
+            </tr>
+            <tr>
+                <td>default</td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>❌</td>
+                <td>❌</td>
+            </tr>
+            <tr>
+                <td>protected</td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>❌</td>
+            </tr>
+            <tr>
+                <td>public</td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p style="margin-top:12px;"><a href="../JavaCourseContent.html">← Back to syllabus</a></p>
+</div>
+</body>
+</html>

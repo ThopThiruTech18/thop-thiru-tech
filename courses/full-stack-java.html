@@ -83,6 +83,23 @@ header{
     font-weight:bold;
 }
 
+/* Enhanced alternating background colors for questions */
+.question:nth-child(odd) {
+    background: linear-gradient(to right, #f9f9f9, #eaf7ff);
+}
+
+.question:nth-child(even) {
+    background: linear-gradient(to right, #fff3e6, #ffe8d6);
+}
+
+/* Add hover effect for better interactivity */
+.question:hover {
+    background: linear-gradient(to right, #d1f7c4, #b2f0a1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+}
+
 /* ===== FOOTER ===== */
 footer{
     position:fixed;

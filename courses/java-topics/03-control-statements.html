@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Control Statements</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 24px;
+            background: #f4fbff;
+            color: #072a4b;
+        }
+
+        .card {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(2, 20, 40, 0.06);
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #0b63ff;
+        }
+
+        pre {
+            background: #f3f7ff;
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 4px solid #0b63ff;
+            overflow-x: auto;
+        }
+
+        ul {
+            margin: 8px 0 0 20px;
+        }
+
+        a {
+            color: #0b63ff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background: #f3f7ff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1>🔁 Java Control Statements (Zero → Hero)</h1>
+
+        <h2>❓ What are Control Statements?</h2>
+        <p>Control statements decide how a program runs. They control:</p>
+        <ul>
+            <li>1️⃣ Which code should execute</li>
+            <li>2️⃣ How many times code should execute</li>
+            <li>3️⃣ When the program should stop or jump</li>
+        </ul>
+        <p><strong>📌 Without control statements:</strong> The program runs line by line only.</p>
+
+        <h2>🔰 Types of Control Statements</h2>
+        <p>Java has 3 types:</p>
+        <ul>
+            <li>1️⃣ <strong>Selection Statements</strong> → Decision making</li>
+            <li>2️⃣ <strong>Iteration Statements</strong> → Repeating code (loops)</li>
+            <li>3️⃣ <strong>Jump Statements</strong> → Jump / stop execution</li>
+        </ul>
+
+        <h2>1️⃣ Selection Statements (Decision Making) 🔀</h2>
+        <h3>🔹 if statement</h3>
+        <pre><code>int age = 20;
+
+if (age >= 18) {
+    System.out.println("Eligible to vote");
+}</code></pre>
+        <p><strong>🧠 Meaning:</strong> If age ≥ 18 → print message. If condition is false → nothing happens.</p>
+
+        <h3>🔹 if–else statement</h3>
+        <pre><code>int num = 5;
+
+if (num % 2 == 0) {
+    System.out.println("Even number");
+} else {
+    System.out.println("Odd number");
+}</code></pre>
+        <p><strong>🧠 Meaning:</strong> If number divisible by 2 → Even. Else → Odd.</p>
+
+        <h3>🔹 if–else–if ladder</h3>
+        <pre><code>int marks = 75;
+
+if (marks >= 90) {
+    System.out.println("Grade A");
+} else if (marks >= 70) {
+    System.out.println("Grade B");
+} else {
+    System.out.println("Grade C");
+}</code></pre>
+        <p><strong>🧠 Meaning:</strong> Java checks top to bottom. First true condition executes.</p>
+
+        <h3>🔹 Nested if</h3>
+        <pre><code>int age = 22;
+boolean hasVoterId = true;
+
+if (age >= 18) {
+    if (hasVoterId) {
+        System.out.println("Can vote");
+    }
+}</code></pre>
+        <p><strong>🧠 Meaning:</strong> Age must be ≥ 18 AND voter ID must exist.</p>
+
+        <h3>🔹 switch statement</h3>
+        <pre><code>int day = 3;
+
+switch (day) {
+    case 1:
+        System.out.println("Monday");
+        break;
+    case 2:
+        System.out.println("Tuesday");
+        break;
+    case 3:
+        System.out.println("Wednesday");
+        break;
+    default:
+        System.out.println("Invalid day");
+}</code></pre>
+        <p><strong>📌 break:</strong> Stops switch.<br><strong>📌 default:</strong> Runs if no case matches.</p>
+
+        <h2>2️⃣ Iteration Statements (Loops) 🔄</h2>
+        <h3>🔹 for loop</h3>
+        <pre><code>for (int i = 1; i <= 5; i++) {
+    System.out.println(i);
+}</code></pre>
+        <p><strong>🧠 Meaning:</strong> Start from 1, run till 5, increment by 1.</p>
+
+        <h3>🔹 while loop</h3>
+        <pre><code>int i = 1;
+
+while (i <= 5) {
+    System.out.println(i);
+    i++;
+}</code></pre>
+        <p><strong>📌 Condition:</strong> Checked before execution.</p>
+
+        <h3>🔹 do–while loop</h3>
+        <pre><code>int i = 1;
+
+do {
+    System.out.println(i);
+    i++;
+} while (i <= 5);</code></pre>
+        <p><strong>📌 Condition:</strong> Checked after execution.</p>
+
+        <h3>🔹 for-each loop</h3>
+        <pre><code>int[] nums = {10, 20, 30};
+
+for (int n : nums) {
+    System.out.println(n);
+}</code></pre>
+        <p><strong>🧠 Meaning:</strong> Takes each value from array one by one. No index handling needed.</p>
+
+        <h2>3️⃣ Jump Statements 🚀</h2>
+        <h3>🔹 break</h3>
+        <pre><code>for (int i = 1; i <= 10; i++) {
+    if (i == 5) {
+        break;
+    }
+    System.out.println(i);
+}</code></pre>
+        <p><strong>🧠 Output:</strong> 1 2 3 4</p>
+
+        <h3>🔹 continue</h3>
+        <pre><code>for (int i = 1; i <= 5; i++) {
+    if (i == 3) {
+        continue;
+    }
+    System.out.println(i);
+}</code></pre>
+        <p><strong>🧠 Output:</strong> 1 2 4 5</p>
+
+        <h3>🔹 return</h3>
+        <pre><code>public static int add(int a, int b) {
+    return a + b;
+}</code></pre>
+        <p><strong>📌 After return:</strong> No code executes in that method.</p>
+
+        <h2>⭐ Advanced Control Statements</h2>
+        <h3>🔹 Nested loops</h3>
+        <pre><code>for (int i = 1; i <= 3; i++) {
+    for (int j = 1; j <= 3; j++) {
+        System.out.print(j + " ");
+    }
+    System.out.println();
+}</code></pre>
+        <p><strong>🧠 Used in:</strong> Pattern programs, matrix problems.</p>
+
+        <h3>🔹 Labeled break</h3>
+        <pre><code>outer:
+for (int i = 1; i <= 3; i++) {
+    for (int j = 1; j <= 3; j++) {
+        if (i == 2) {
+            break outer;
+        }
+        System.out.println(i + " " + j);
+    }
+}</code></pre>
+
+        <h2>🧠 Interview Quick Notes ⭐</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Statement</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>if</td>
+                    <td>Single condition</td>
+                </tr>
+                <tr>
+                    <td>if-else</td>
+                    <td>True / False</td>
+                </tr>
+                <tr>
+                    <td>if-else-if</td>
+                    <td>Multiple conditions</td>
+                </tr>
+                <tr>
+                    <td>switch</td>
+                    <td>Fixed choices</td>
+                </tr>
+                <tr>
+                    <td>for</td>
+                    <td>Known loops</td>
+                </tr>
+                <tr>
+                    <td>while</td>
+                    <td>Unknown loops</td>
+                </tr>
+                <tr>
+                    <td>do-while</td>
+                    <td>Run at least once</td>
+                </tr>
+                <tr>
+                    <td>break</td>
+                    <td>Stop loop</td>
+                </tr>
+                <tr>
+                    <td>continue</td>
+                    <td>Skip iteration</td>
+                </tr>
+                <tr>
+                    <td>return</td>
+                    <td>Exit method</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p style="margin-top:12px;"><a href="../JavaCourseContent.html">← Back to syllabus</a></p>
+    </div>
+</body>
+
+</html>

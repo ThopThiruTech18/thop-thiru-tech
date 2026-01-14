@@ -1,0 +1,293 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>String Handling</title><style>body{font-family:Arial,Helvetica,sans-serif;margin:24px;background:#fffaf6;color:#3a2b09}.card{max-width:900px;margin:auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 8px 20px rgba(2,20,40,0.05)} a{color:#b46b00;text-decoration:none;font-weight:600} /* Added background color and separators for better readability */ body { font-family: Arial, sans-serif; background-color: #f9f9f9; color: #333; line-height: 1.6; } h1, h2, h3 { background-color: #e0f7fa; padding: 10px; border-radius: 5px; } h4 { background-color: #fce4ec; padding: 8px; border-radius: 5px; } pre { background-color: #f4f4f4; padding: 10px; border-left: 4px solid #2196f3; overflow-x: auto; } table { width: 100%; border-collapse: collapse; margin: 20px 0; } table, th, td { border: 1px solid #ddd; } th, td { padding: 10px; text-align: left; } th { background-color: #f2f2f2; } ul { margin: 10px 0; padding-left: 20px; } li { margin: 5px 0; } hr { border: 0; border-top: 2px solid #ccc; margin: 20px 0; } </style></head><body><div class="card"><h1>String Handling</h1><ul><li>String, StringBuffer, StringBuilder</li><li>Immutable strings vs mutable</li><li>Common String methods</li><li>Typical string coding problems</li></ul><p><a href="../JavaCourseContent.html">← Back to syllabus</a></p></div><div class="card"><h1>Java Strings (Zero → Hero)</h1>
+
+<hr>
+
+<h2>Zero Level – Basics</h2>
+
+<h3>What is a String?</h3>
+<p>A String is a sequence (group) of characters.</p>
+<pre><code>String name = "Thiru";</code></pre>
+<p><strong>In Java:</strong></p>
+<ul>
+    <li>String is a class (not a primitive)</li>
+    <li>Strings are immutable (cannot be changed)</li>
+</ul>
+
+<h4>Why String is Special in Java?</h4>
+<ul>
+    <li>Used everywhere (names, messages, JSON, URLs, files)</li>
+    <li>Stored in <strong>String Constant Pool (SCP)</strong></li>
+    <li>Immutable → Secure + Thread-safe</li>
+    <li>Saves memory by reusing objects</li>
+</ul>
+
+<hr>
+
+<h3>How to Create a String</h3>
+<ol>
+    <li><strong>Using String Literal (MOST COMMON)</strong>
+        <pre><code>String s1 = "Java";
+String s2 = "Java";</code></pre>
+        <p><strong>Note:</strong> Both <code>s1</code> and <code>s2</code> point to the same object in SCP.</p>
+        <ul>
+            <li>✔ Memory efficient</li>
+            <li>✔ Faster</li>
+        </ul>
+    </li>
+    <li><strong>Using new Keyword</strong>
+        <pre><code>String s3 = new String("Java");</code></pre>
+        <p><strong>Note:</strong> Creates a new object in Heap memory.</p>
+        <ul>
+            <li>❌ Not memory efficient</li>
+            <li>✔ Used when a separate object is required</li>
+        </ul>
+    </li>
+</ol>
+
+<hr>
+
+<h4>String Memory (IMPORTANT ⭐)</h4>
+<pre><code>String s1 = "Java";
+String s2 = "Java";
+String s3 = new String("Java");</code></pre>
+<table>
+    <thead>
+        <tr>
+            <th>Variable</th>
+            <th>Memory Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>s1</td>
+            <td>SCP</td>
+        </tr>
+        <tr>
+            <td>s2</td>
+            <td>SCP (same reference as s1)</td>
+        </tr>
+        <tr>
+            <td>s3</td>
+            <td>Heap (new object)</td>
+        </tr>
+    </tbody>
+</table>
+
+<hr>
+
+<h3>String Immutability (Core Concept)</h3>
+<p><strong>Definition:</strong> Once a String object is created, it cannot be changed.</p>
+<pre><code>String s = "Java";
+s.concat(" World");
+
+System.out.println(s);</code></pre>
+<p><strong>Output:</strong> Java</p>
+<p><strong>Explanation:</strong></p>
+<ul>
+    <li><code>"Java World"</code> is created, but not assigned</li>
+    <li>Original string remains unchanged</li>
+</ul>
+
+<h4>Why String is Immutable?</h4>
+<ul>
+    <li>✔ Security (passwords, URLs)</li>
+    <li>✔ Thread safety</li>
+    <li>✔ Memory efficiency</li>
+</ul>
+
+<hr>
+
+<h3>Mutable Strings (When modification is needed)</h3>
+<h4>StringBuilder</h4>
+<pre><code>StringBuilder sb = new StringBuilder("Java");
+sb.append(" World");
+
+System.out.println(sb);</code></pre>
+<ul>
+    <li>✔ Mutable</li>
+    <li>✔ Fast</li>
+    <li>❌ Not Thread-Safe</li>
+</ul>
+
+<h4>StringBuffer</h4>
+<pre><code>StringBuffer sb = new StringBuffer("Java");
+sb.append(" World");
+
+System.out.println(sb);</code></pre>
+<ul>
+    <li>✔ Mutable</li>
+    <li>✔ Thread-Safe</li>
+    <li>❌ Slower than StringBuilder</li>
+</ul>
+
+<hr>
+
+<h3>Comparison (Interview ⭐)</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Feature</th>
+            <th>String</th>
+            <th>StringBuilder</th>
+            <th>StringBuffer</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Mutable</td>
+            <td>❌</td>
+            <td>✅</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <td>Thread-Safe</td>
+            <td>✅</td>
+            <td>❌</td>
+            <td>✅</td>
+        </tr>
+        <tr>
+            <td>Performance</td>
+            <td>Slow</td>
+            <td>Fast</td>
+            <td>Medium</td>
+        </tr>
+    </tbody>
+</table>
+
+<hr>
+
+<h2>Common String Methods (Very Important)</h2>
+<ul>
+    <li><strong>length()</strong>
+        <pre><code>String s = "Java";
+System.out.println(s.length()); // 4</code></pre>
+    </li>
+    <li><strong>charAt()</strong>
+        <pre><code>System.out.println(s.charAt(0)); // J</code></pre>
+    </li>
+    <li><strong>equals() vs ==</strong>
+        <pre><code>String a = "Java";
+String b = "Java";
+
+System.out.println(a == b);      // true (reference)
+System.out.println(a.equals(b)); // true (content)</code></pre>
+        <p><strong>Note:</strong> Always use <code>equals()</code> for content comparison.</p>
+    </li>
+    <li><strong>equalsIgnoreCase()</strong>
+        <pre><code>"java".equalsIgnoreCase("JAVA"); // true</code></pre>
+    </li>
+    <li><strong>toUpperCase() / toLowerCase()</strong>
+        <pre><code>"Java".toUpperCase(); // JAVA</code></pre>
+    </li>
+    <li><strong>substring()</strong>
+        <pre><code>String s = "Programming";
+System.out.println(s.substring(0, 6)); // Progra</code></pre>
+    </li>
+    <li><strong>contains()</strong>
+        <pre><code>"Java Full Stack".contains("Full"); // true</code></pre>
+    </li>
+    <li><strong>startsWith() / endsWith()</strong>
+        <pre><code>"Java".startsWith("J"); // true</code></pre>
+    </li>
+    <li><strong>replace()</strong>
+        <pre><code>"Java".replace("a", "o"); // Jovo</code></pre>
+    </li>
+    <li><strong>split()</strong>
+        <pre><code>String s = "Java,Spring,Angular";
+String[] arr = s.split(",");</code></pre>
+    </li>
+    <li><strong>trim()</strong>
+        <pre><code>"  Java  ".trim(); // Java</code></pre>
+    </li>
+</ul>
+
+<hr>
+
+<h2>String Programs (Interview ⭐⭐⭐)</h2>
+<ul>
+    <li><strong>Reverse a String</strong>
+        <pre><code>String s = "Java";
+String rev = "";
+
+for (int i = s.length() - 1; i >= 0; i--) {
+    rev += s.charAt(i);
+}
+
+System.out.println(rev); // avaJ</code></pre>
+    </li>
+    <li><strong>Palindrome String</strong>
+        <pre><code>String s = "madam";
+String rev = new StringBuilder(s).reverse().toString();
+
+System.out.println(s.equals(rev)); // true</code></pre>
+    </li>
+    <li><strong>Count Characters</strong>
+        <pre><code>String s = "Java";
+System.out.println(s.length());</code></pre>
+    </li>
+    <li><strong>Count Words</strong>
+        <pre><code>String s = "Java Full Stack";
+String[] words = s.split(" ");
+System.out.println(words.length);</code></pre>
+    </li>
+</ul>
+
+<hr>
+
+<h2>Advanced (Hero Level)</h2>
+<ul>
+    <li><strong>String Interning</strong>
+        <pre><code>String s1 = new String("Java").intern();
+String s2 = "Java";</code></pre>
+        <p><strong>Note:</strong> Both point to the same SCP object.</p>
+    </li>
+    <li><strong>StringTokenizer</strong>
+        <pre><code>StringTokenizer st = new StringTokenizer("Java Spring Boot");
+
+while (st.hasMoreTokens()) {
+    System.out.println(st.nextToken());
+}</code></pre>
+        <p><strong>Note:</strong> Used to break a string into tokens.</p>
+    </li>
+    <li><strong>StringJoiner (Java 8)</strong>
+        <pre><code>StringJoiner sj = new StringJoiner(",");
+sj.add("Java")
+  .add("Spring")
+  .add("Microservices");
+
+System.out.println(sj);</code></pre>
+    </li>
+</ul>
+
+<hr>
+
+<h3>Real-Time Usage</h3>
+<ul>
+    <li>✔ Login validation</li>
+    <li>✔ REST API request/response</li>
+    <li>✔ JSON parsing</li>
+    <li>✔ File & CSV processing</li>
+    <li>✔ URL & query parameters</li>
+</ul>
+
+<hr>
+
+<h3>Interview One-Line Answers ⭐</h3>
+<ul>
+    <li><strong>String</strong> → Immutable class</li>
+    <li><strong>equals()</strong> → Content comparison</li>
+    <li><strong>==</strong> → Reference comparison</li>
+    <li><strong>StringBuilder</strong> → Fast & mutable</li>
+    <li><strong>StringBuffer</strong> → Thread-safe</li>
+</ul>
+
+<hr>
+
+<h3>Final Summary (Hero Level)</h3>
+<ul>
+    <li>✔ String is immutable</li>
+    <li>✔ Use StringBuilder for modifications</li>
+    <li>✔ Use equals(), not ==</li>
+    <li>✔ Strings are the backbone of Java apps</li>
+</ul>
+</div></body></html>

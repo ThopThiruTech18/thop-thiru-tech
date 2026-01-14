@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Exception Handling</title>
+	<style>
+		body { font-family: Arial, Helvetica, sans-serif; margin:24px; background:#f9fafb; color:#1f2937; }
+		.card { max-width:960px; margin:auto; background:#ffffff; padding:22px; border-radius:10px; box-shadow:0 8px 20px rgba(16,24,40,0.06); }
+		h1 { background:#e1f5fe; padding:12px 14px; border-radius:8px; }
+		h2 { background:#e8f5e9; padding:10px 12px; border-radius:6px; }
+		h3 { background:#fff3e0; padding:8px 10px; border-radius:6px; }
+		pre { background:#f4f6f8; padding:12px; border-left:4px solid #42a5f5; overflow:auto; }
+		table { width:100%; border-collapse:collapse; margin:12px 0; }
+		th, td { border:1px solid #e6edf3; padding:8px; text-align:left; }
+		th { background:#f2f8ff; }
+		hr { border:0; border-top:2px solid #eef2f6; margin:18px 0; }
+		ul { padding-left:20px; }
+		a.back { color:#0b5fff; font-weight:600; text-decoration:none; }
+		.note { background:#fff7e6; padding:8px 10px; border-radius:6px; }
+	</style>
+</head>
+<body>
+	<div class="card">
+		<h1>Java Exception Handling (Zero → Hero)</h1>
+
+		<p><a class="back" href="../JavaCourseContent.html">← Back to syllabus</a></p>
+
+		<hr>
+
+		<h2>What is an Exception?</h2>
+		<p>An exception is an unexpected problem that occurs during program execution and disturbs the normal flow of the program.</p>
+		<h3>Real-life example</h3>
+		<p>ATM card inserted but no balance → program should handle it instead of crashing.</p>
+
+		<hr>
+
+		<h2>Error vs Exception</h2>
+		<table>
+			<thead>
+				<tr><th>Error</th><th>Exception</th></tr>
+			</thead>
+			<tbody>
+				<tr><td>Serious problem</td><td>Recoverable problem</td></tr>
+				<tr><td>JVM related</td><td>Program related</td></tr>
+				<tr><td>Out of programmer control</td><td>Can be handled</td></tr>
+				<tr><td>Example: OutOfMemoryError</td><td>Example: NullPointerException</td></tr>
+			</tbody>
+		</table>
+
+		<hr>
+
+		<h2>Types of Exceptions</h2>
+		<ol>
+			<li>Checked Exceptions (compile-time)</li>
+			<li>Unchecked Exceptions (runtime)</li>
+			<li>Errors (JVM problems)</li>
+		</ol>
+
+		<h3>Checked Exceptions</h3>
+		<p>Checked at compile time — must be handled or declared (e.g., <code>IOException</code>, <code>SQLException</code>, <code>FileNotFoundException</code>).</p>
+		<pre><code>FileReader fr = new FileReader("data.txt"); // may require throws or try-catch</code></pre>
+
+		<hr>
+
+		<h3>Unchecked Exceptions</h3>
+		<p>Occur at runtime and are not checked by the compiler (e.g., <code>NullPointerException</code>, <code>ArithmeticException</code>, <code>ArrayIndexOutOfBoundsException</code>).</p>
+		<pre><code>int a = 10 / 0; // ArithmeticException at runtime</code></pre>
+
+		<hr>
+
+		<h3>Errors</h3>
+		<p>Serious JVM problems that are usually not recoverable (e.g., <code>StackOverflowError</code>, <code>OutOfMemoryError</code>).</p>
+
+		<hr>
+
+		<h2>Exception Hierarchy</h2>
+		<pre><code>Object
+ └── Throwable
+			├── Exception
+			│     ├── Checked Exceptions
+			│     └── RuntimeException (Unchecked)
+			└── Error</code></pre>
+
+		<hr>
+
+		<h2>Handling Exceptions</h2>
+
+		<h3>try–catch</h3>
+		<p>Wrap risky code in <code>try</code>, handle in <code>catch</code>:</p>
+		<pre><code>try {
+		int a = 10 / 0;
+} catch (ArithmeticException e) {
+		System.out.println("Cannot divide by zero");
+}</code></pre>
+
+		<h3>Multiple catch blocks</h3>
+		<p>Place child exceptions first, parent last:</p>
+		<pre><code>try {
+		int[] a = {1, 2};
+		System.out.println(a[5]);
+} catch (ArrayIndexOutOfBoundsException e) {
+		System.out.println("Index error");
+} catch (Exception e) {
+		System.out.println("General exception");
+}</code></pre>
+
+		<h3>finally</h3>
+		<p>Executes always (used for cleanup):</p>
+		<pre><code>try {
+		// code
+} catch (Exception e) {
+		// handle
+} finally {
+		// always executed
+}</code></pre>
+
+		<hr>
+
+		<h2>Try-with-resources (Java 7+)</h2>
+		<p>Automatically closes resources that implement <code>AutoCloseable</code>:</p>
+		<pre><code>try (FileReader fr = new FileReader("data.txt")) {
+		System.out.println("Reading file");
+} catch (Exception e) {
+		e.printStackTrace();
+}</code></pre>
+
+		<hr>
+
+		<h2>throw vs throws</h2>
+		<p><strong>throw</strong> — create/throw an exception manually.</p>
+		<pre><code>throw new ArithmeticException("Invalid operation");</code></pre>
+		<p><strong>throws</strong> — declare that a method may throw exceptions.</p>
+		<pre><code>void readFile() throws IOException {
+		FileReader fr = new FileReader("data.txt");
+}</code></pre>
+
+		<hr>
+
+		<h2>Custom Exceptions</h2>
+		<p>Create domain-specific exceptions by extending <code>Exception</code> or <code>RuntimeException</code>:</p>
+		<pre><code>class InvalidAgeException extends Exception {
+		InvalidAgeException(String msg) { super(msg); }
+}
+
+// usage
+if (age < 18) {
+		throw new InvalidAgeException("Not eligible to vote");
+}</code></pre>
+
+		<hr>
+
+		<h2>Common Exceptions (Quick)</h2>
+		<table>
+			<thead><tr><th>Exception</th><th>Reason</th></tr></thead>
+			<tbody>
+				<tr><td>NullPointerException</td><td>Accessing null object</td></tr>
+				<tr><td>ArithmeticException</td><td>Divide by zero</td></tr>
+				<tr><td>ArrayIndexOutOfBoundsException</td><td>Invalid index</td></tr>
+				<tr><td>NumberFormatException</td><td>String to number conversion error</td></tr>
+				<tr><td>ClassCastException</td><td>Invalid casting</td></tr>
+			</tbody>
+		</table>
+
+		<hr>
+
+		<h2>Real-Time Usage</h2>
+		<ul>
+			<li>Spring Boot REST APIs</li>
+			<li>Database operations</li>
+			<li>File handling</li>
+			<li>Input validation</li>
+			<li>Microservices error handling</li>
+		</ul>
+
+		<hr>
+
+		<h2>Best Practices</h2>
+		<ul>
+			<li>Catch specific exceptions</li>
+			<li>Never swallow exceptions (don't use empty catch)</li>
+			<li>Use <code>finally</code> or try-with-resources for cleanup</li>
+			<li>Don't use exceptions for flow control</li>
+		</ul>
+
+		<hr>
+
+		<h2>Interview One-Line Answers</h2>
+		<ul>
+			<li>Exception → Runtime abnormal condition</li>
+			<li>Checked → Compile-time</li>
+			<li>Unchecked → Runtime</li>
+			<li><code>throw</code> → Create/throw exception</li>
+			<li><code>throws</code> → Declare exception</li>
+		</ul>
+
+		<hr>
+
+		<h2>Final Summary</h2>
+		<ul>
+			<li>Exceptions prevent application crash when handled</li>
+			<li>Proper handling improves reliability and maintainability</li>
+			<li>Core topic for interviews and real-world projects</li>
+		</ul>
+
+	</div>
+</body>
+</html>

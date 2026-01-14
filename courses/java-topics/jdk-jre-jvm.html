@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JDK, JRE & JVM Architecture</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 24px;
+    background: #f4fbff;
+    color: #072a4b;
+}
+.card {
+    max-width: 900px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(2, 20, 40, 0.06);
+}
+h1, h2 {
+    color: #0b63ff;
+}
+pre {
+    background: #f3f7ff;
+    padding: 12px;
+    border-radius: 8px;
+    border-left: 4px solid #0b63ff;
+    overflow-x: auto;
+}
+ul {
+    margin: 8px 0 0 20px;
+}
+a {
+    color: #0b63ff;
+    text-decoration: none;
+    font-weight: 600;
+}
+a:hover {
+    text-decoration: underline;
+}
+</style>
+</head>
+<body>
+<div class="card">
+    <h1>JDK, JRE & JVM Architecture</h1>
+
+    <h2>1️⃣ High-Level Architecture Overview</h2>
+    <pre>
++---------------------------------------------------+
+|                     JDK                           |
+|  +---------------------------------------------+  |
+|  |                   JRE                       |  |
+|  |  +---------------------------------------+  |  |
+|  |  |                JVM                    |  |  |
+|  |  |  - Class Loader                       |  |  |
+|  |  |  - Runtime Memory Areas               |  |  |
+|  |  |  - Execution Engine                  |  |  |
+|  |  +---------------------------------------+  |  |
+|  |                                             |  |
+|  |  Core Libraries (java.lang, java.util, etc.)|  |
+|  +---------------------------------------------+  |
+|                                                 |
+|  Development Tools (javac, java, jar, javadoc)  |
++---------------------------------------------------+
+    </pre>
+
+    <h2>2️⃣ JDK (Java Development Kit) 🧰</h2>
+    <h3>What is JDK?</h3>
+    <p>JDK is a <strong>complete package for Java developers</strong>. It is used to <strong>develop, compile, debug, and run</strong> Java applications.</p>
+
+    <h3>JDK Contains:</h3>
+    <ul>
+        <li>✅ <strong>JRE</strong></li>
+        <li>✅ <strong>Development Tools</strong>
+            <ul>
+                <li><code>javac</code> – Java compiler</li>
+                <li><code>java</code> – Runs Java programs</li>
+                <li><code>jar</code> – Creates executable JAR files</li>
+                <li><code>javadoc</code> – Generates documentation</li>
+                <li><code>jdb</code> – Debugger</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Usage:</h3>
+    <ul>
+        <li>Required for <strong>developers</strong></li>
+        <li>Used to <strong>write and compile</strong> Java code</li>
+    </ul>
+
+    <h2>3️⃣ JRE (Java Runtime Environment) ⚙️</h2>
+    <h3>What is JRE?</h3>
+    <p>JRE provides the <strong>environment to run Java applications</strong>. It does not contain development tools.</p>
+
+    <h3>JRE Contains:</h3>
+    <ul>
+        <li>✅ <strong>JVM</strong></li>
+        <li>✅ <strong>Core Java Libraries</strong>
+            <ul>
+                <li><code>java.lang</code></li>
+                <li><code>java.util</code></li>
+                <li><code>java.io</code></li>
+                <li><code>java.sql</code></li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Usage:</h3>
+    <ul>
+        <li>Required for <strong>running Java applications</strong></li>
+        <li>Used by <strong>end users / servers</strong></li>
+    </ul>
+
+    <h2>4️⃣ JVM (Java Virtual Machine) 🧠</h2>
+    <h3>What is JVM?</h3>
+    <p>JVM is the <strong>heart of Java</strong>. It executes Java <strong>bytecode</strong> and makes Java platform-independent.</p>
+
+    <h3>JVM Components:</h3>
+    <ul>
+        <li><strong>Class Loader</strong> – Loads class files</li>
+        <li><strong>Runtime Memory Areas</strong> – Stack, Heap, Method Area</li>
+        <li><strong>Execution Engine</strong> – Executes bytecode</li>
+    </ul>
+
+    <h3>Usage:</h3>
+    <ul>
+        <li>Required for <strong>executing Java bytecode</strong></li>
+        <li>Used by <strong>JRE</strong></li>
+    </ul>
+
+    <p style="margin-top:12px;"><a href="../JavaCourseContent.html">← Back to syllabus</a></p>
+</div>
+</body>
+</html>
