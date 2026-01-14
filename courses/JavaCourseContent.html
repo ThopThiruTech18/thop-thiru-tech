@@ -59,18 +59,28 @@ html { scroll-behavior: smooth; }
   margin:12px 0;
   border:1px solid rgba(11,35,60,0.04);
 }
-.toc ul{ list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:8px; }
-.toc a{
-  display:inline-block;
-  padding:8px 10px;
-  background:#eef6ff;
-  color:#0b63ff;
-  border-radius:6px;
-  text-decoration:none;
-  font-weight:600;
-  border:1px solid rgba(11,99,255,0.08);
-}
-.toc a:hover{ background:#dff0ff; transform:translateY(-1px); }
+  .toc ul{ list-style:none; padding:0; margin:0; display:block; }
+  .toc a{
+    display:block;
+    padding:10px 12px;
+    background:#eef6ff;
+    color:#0b63ff;
+    border-radius:6px;
+    text-decoration:none;
+    font-weight:600;
+    border:1px solid rgba(11,99,255,0.08);
+    margin:6px 0;
+  }
+  .toc a:hover{ background:#dff0ff; transform:none; }
+
+  /* Layout: left sidebar + main content */
+  .layout{ display:flex; gap:20px; align-items:flex-start; }
+  .sidebar{ flex:0 0 260px; position:sticky; top:28px; height:calc(100vh - 56px); overflow:auto; }
+  .main{ flex:1; min-width:0; }
+  @media (max-width:900px){
+    .layout{ display:block; }
+    .sidebar{ position:static; height:auto; margin-bottom:12px; }
+  }
 
 /* Responsive tweaks */
 @media (max-width:768px){
@@ -84,236 +94,288 @@ html { scroll-behavior: smooth; }
 <h1>Full Stack Java — Topic-wise Course (Beginner → Advanced)</h1>
 <p>Follow topics in order; complete the labs to build practical skills.</p>
 
-<!-- Added: Table of Contents with anchor links -->
-<nav class="toc" aria-label="Table of contents">
-  <ul>
-    <li><a href="java-topics/01-java-introduction.html">1. Java Introduction</a></li>
-    <li><a href="java-topics/02-basics-of-java.html">2. Basics of Java</a></li>
-    <li><a href="java-topics/03-control-statements.html">3. Control Statements</a></li>
-    <li><a href="java-topics/04-oops.html">4. OOP</a></li>
-    <li><a href="java-topics/05-string-handling.html">5. String Handling</a></li>
-    <li><a href="java-topics/06-arrays.html">6. Arrays</a></li>
-    <li><a href="java-topics/07-exception-handling.html">7. Exception Handling</a></li>
-    <li><a href="java-topics/08-wrapper-classes.html">8. Wrapper Classes</a></li>
-    <li><a href="java-topics/09-collections-framework.html">9. Collections Framework</a></li>
-    <li><a href="java-topics/10-java8-features.html">10. Java 8 Features</a></li>
-    <li><a href="java-topics/11-multithreading-concurrency.html">11. Multithreading & Concurrency</a></li>
-    <li><a href="java-topics/12-file-handling-io.html">12. File Handling & IO</a></li>
-    <li><a href="java-topics/13-jdbc.html">13. JDBC</a></li>
-    <li><a href="java-topics/14-annotations.html">14. Annotations</a></li>
-    <li><a href="java-topics/15-memory-management.html">15. Memory Management</a></li>
-    <li><a href="java-topics/16-design-patterns.html">16. Design Patterns</a></li>
-    <li><a href="java-topics/17-advanced-java-overview.html">17. Advanced Java (Overview)</a></li>
-  </ul>
-</nav>
+<!-- layout: left sidebar with TOC and right-side content area -->
+<div class="layout">
+  <aside class="sidebar">
+    <nav class="toc" aria-label="Table of contents">
+      <ul>
+        <li><a href="java-topics/01-java-introduction.html">1. Java Introduction</a></li>
+        <li><a href="java-topics/02-basics-of-java.html">2. Basics of Java</a></li>
+        <li><a href="java-topics/03-control-statements.html">3. Control Statements</a></li>
+        <li><a href="java-topics/04-oops.html">4. OOP</a></li>
+        <li><a href="java-topics/05-string-handling.html">5. String Handling</a></li>
+        <li><a href="java-topics/06-arrays.html">6. Arrays</a></li>
+        <li><a href="java-topics/07-exception-handling.html">7. Exception Handling</a></li>
+        <li><a href="java-topics/08-wrapper-classes.html">8. Wrapper Classes</a></li>
+        <li><a href="java-topics/09-collections-framework.html">9. Collections Framework</a></li>
+        <li><a href="java-topics/10-java8-features.html">10. Java 8 Features</a></li>
+        <li><a href="java-topics/11-multithreading-concurrency.html">11. Multithreading & Concurrency</a></li>
+        <li><a href="java-topics/12-file-handling-io.html">12. File Handling & IO</a></li>
+        <li><a href="java-topics/13-jdbc.html">13. JDBC</a></li>
+        <li><a href="java-topics/14-annotations.html">14. Annotations</a></li>
+        <li><a href="java-topics/15-memory-management.html">15. Memory Management</a></li>
+        <li><a href="java-topics/16-design-patterns.html">16. Design Patterns</a></li>
+        <li><a href="java-topics/17-advanced-java-overview.html">17. Advanced Java (Overview)</a></li>
+      </ul>
+    </nav>
+  </aside>
 
-<!-- Updated: add id attributes to each topic block -->
-<div class="topic" id="topic-1">
-<h2>📘 JAVA SYLLABUS (POINT-WISE)</h2>
-<ol>
-<li><strong>1️⃣ JAVA INTRODUCTION 🚀</strong>
-  <ul>
-    <li>What is Java ❓</li>
-    <li>Features of Java ⭐</li>
-    <li>Java Editions (SE, EE, ME) 📦</li>
-    <li>JVM, JRE, JDK 🧠</li>
-    <li>Java Program Execution Flow 🔄</li>
-    <li>Java Installation & Environment Setup ⚙️</li>
-  </ul>
-</li>
+  <main class="main" aria-live="polite">
 
-<li><strong>2️⃣ BASICS OF JAVA 🧩</strong>
-  <ul>
-    <li>Variables 🧮</li>
-    <li>Data Types 🔢</li>
-    <li>Type Casting 🔄</li>
-    <li>Operators ➕➖✖️➗</li>
-    <li>Keywords & Identifiers 🏷️</li>
-    <li>Comments 💬</li>
-    <li>Input & Output (Scanner, BufferedReader) ⌨️</li>
-  </ul>
-</li>
+  <div class="topic" id="topic-1">
+  <h2>📘 JAVA SYLLABUS (POINT-WISE)</h2>
+  <ol>
+  <li><strong>1️⃣ JAVA INTRODUCTION 🚀</strong>
+    <ul>
+      <li>What is Java ❓</li>
+      <li>Features of Java ⭐</li>
+      <li>Java Editions (SE, EE, ME) 📦</li>
+      <li>JVM, JRE, JDK 🧠</li>
+      <li>Java Program Execution Flow 🔄</li>
+      <li>Java Installation & Environment Setup ⚙️</li>
+    </ul>
+  </li>
 
-<li><strong>3️⃣ CONTROL STATEMENTS 🔀</strong>
-  <ul>
-    <li>if / if-else 🤔</li>
-    <li>switch 🔁</li>
-    <li>for loop 🔂</li>
-    <li>while loop ♻️</li>
-    <li>do-while loop 🔄</li>
-    <li>break & continue ⛔➡️</li>
-  </ul>
-</li>
+  <li><strong>2️⃣ BASICS OF JAVA 🧩</strong>
+    <ul>
+      <li>Variables 🧮</li>
+      <li>Data Types 🔢</li>
+      <li>Type Casting 🔄</li>
+      <li>Operators ➕➖✖️➗</li>
+      <li>Keywords & Identifiers 🏷️</li>
+      <li>Comments 💬</li>
+      <li>Input & Output (Scanner, BufferedReader) ⌨️</li>
+    </ul>
+  </li>
 
-<li><strong>4️⃣ OBJECT ORIENTED PROGRAMMING (OOP) 🏗️</strong>
-  <ul>
-    <li>Class & Object 🧱</li>
-    <li>Constructors 🔨</li>
-    <li>this keyword 👉</li>
-    <li>static keyword 🧷</li>
-    <li>Inheritance 👨‍👦</li>
-    <li>Polymorphism 🎭</li>
-    <li>Method Overloading ➕</li>
-    <li>Method Overriding 🔁</li>
-    <li>Abstraction 🧠</li>
-    <li>Interface 🔌</li>
-    <li>Encapsulation 🔐</li>
-    <li>final keyword 🚫</li>
-  </ul>
-</li>
+  <li><strong>3️⃣ CONTROL STATEMENTS 🔀</strong>
+    <ul>
+      <li>if / if-else 🤔</li>
+      <li>switch 🔁</li>
+      <li>for loop 🔂</li>
+      <li>while loop ♻️</li>
+      <li>do-while loop 🔄</li>
+      <li>break & continue ⛔➡️</li>
+    </ul>
+  </li>
 
-<li><strong>5️⃣ STRING HANDLING 🧵</strong>
-  <ul>
-    <li>String class 📝</li>
-    <li>StringBuffer 🧰</li>
-    <li>StringBuilder ⚡</li>
-    <li>String vs StringBuffer vs StringBuilder ⚖️</li>
-    <li>Immutable Strings 🔒</li>
-    <li>String methods 🛠️</li>
-    <li>String Coding Problems 🧪</li>
-  </ul>
-</li>
+  <li><strong>4️⃣ OBJECT ORIENTED PROGRAMMING (OOP) 🏗️</strong>
+    <ul>
+      <li>Class & Object 🧱</li>
+      <li>Constructors 🔨</li>
+      <li>this keyword 👉</li>
+      <li>static keyword 🧷</li>
+      <li>Inheritance 👨‍👦</li>
+      <li>Polymorphism 🎭</li>
+      <li>Method Overloading ➕</li>
+      <li>Method Overriding 🔁</li>
+      <li>Abstraction 🧠</li>
+      <li>Interface 🔌</li>
+      <li>Encapsulation 🔐</li>
+      <li>final keyword 🚫</li>
+    </ul>
+  </li>
 
-<li><strong>6️⃣ ARRAYS 📊</strong>
-  <ul>
-    <li>One Dimensional Array 📏</li>
-    <li>Multi Dimensional Array 🧮</li>
-    <li>Array Initialization 🚀</li>
-    <li>Array Operations 🔧</li>
-    <li>Sorting & Searching 🔍</li>
-    <li>Array Programs 🧑‍💻</li>
-  </ul>
-</li>
+  <li><strong>5️⃣ STRING HANDLING 🧵</strong>
+    <ul>
+      <li>String class 📝</li>
+      <li>StringBuffer 🧰</li>
+      <li>StringBuilder ⚡</li>
+      <li>String vs StringBuffer vs StringBuilder ⚖️</li>
+      <li>Immutable Strings 🔒</li>
+      <li>String methods 🛠️</li>
+      <li>String Coding Problems 🧪</li>
+    </ul>
+  </li>
 
-<li><strong>7️⃣ EXCEPTION HANDLING 🚨</strong>
-  <ul>
-    <li>Types of Exceptions ❗</li>
-    <li>try-catch 🛑</li>
-    <li>Multiple catch blocks 🧱</li>
-    <li>finally 🔚</li>
-    <li>throw & throws 🎯</li>
-    <li>Custom Exceptions 🛠️</li>
-    <li>Checked vs Unchecked Exceptions ✅❌</li>
-  </ul>
-</li>
+  <li><strong>6️⃣ ARRAYS 📊</strong>
+    <ul>
+      <li>One Dimensional Array 📏</li>
+      <li>Multi Dimensional Array 🧮</li>
+      <li>Array Initialization 🚀</li>
+      <li>Array Operations 🔧</li>
+      <li>Sorting & Searching 🔍</li>
+      <li>Array Programs 🧑‍💻</li>
+    </ul>
+  </li>
 
-<li><strong>8️⃣ WRAPPER CLASSES 🎁</strong>
-  <ul>
-    <li>Primitive vs Wrapper Classes ⚖️</li>
-    <li>Autoboxing 📦</li>
-    <li>Unboxing 📤</li>
-    <li>Parsing Methods 🔢</li>
-  </ul>
-</li>
+  <li><strong>7️⃣ EXCEPTION HANDLING 🚨</strong>
+    <ul>
+      <li>Types of Exceptions ❗</li>
+      <li>try-catch 🛑</li>
+      <li>Multiple catch blocks 🧱</li>
+      <li>finally 🔚</li>
+      <li>throw & throws 🎯</li>
+      <li>Custom Exceptions 🛠️</li>
+      <li>Checked vs Unchecked Exceptions ✅❌</li>
+    </ul>
+  </li>
 
-<li><strong>9️⃣ COLLECTIONS FRAMEWORK 🗂️</strong>
-  <ul>
-    <li>Collection Framework Hierarchy 🌳</li>
-    <li>List (ArrayList, LinkedList, Vector) 📋</li>
-    <li>Set (HashSet, LinkedHashSet, TreeSet) 🧺</li>
-    <li>Queue (PriorityQueue, Deque) 🚶‍♂️</li>
-    <li>Map (HashMap, LinkedHashMap, TreeMap) 🗺️</li>
-    <li>Comparable vs Comparator ⚔️</li>
-    <li>Collections Utility Class 🛠️</li>
-  </ul>
-</li>
+  <li><strong>8️⃣ WRAPPER CLASSES 🎁</strong>
+    <ul>
+      <li>Primitive vs Wrapper Classes ⚖️</li>
+      <li>Autoboxing 📦</li>
+      <li>Unboxing 📤</li>
+      <li>Parsing Methods 🔢</li>
+    </ul>
+  </li>
 
-<li><strong>🔟 JAVA 8 FEATURES ⭐</strong>
-  <ul>
-    <li>Lambda Expressions ➡️</li>
-    <li>Functional Interfaces 🔗</li>
-    <li>Stream API 🌊</li>
-    <li>Method References 🎯</li>
-    <li>Optional Class 🎁</li>
-    <li>forEach 🔁</li>
-    <li>Date & Time API ⏰</li>
-    <li>Default & Static methods in Interface 🧩</li>
-  </ul>
-</li>
+  <li><strong>9️⃣ COLLECTIONS FRAMEWORK 🗂️</strong>
+    <ul>
+      <li>Collection Framework Hierarchy 🌳</li>
+      <li>List (ArrayList, LinkedList, Vector) 📋</li>
+      <li>Set (HashSet, LinkedHashSet, TreeSet) 🧺</li>
+      <li>Queue (PriorityQueue, Deque) 🚶‍♂️</li>
+      <li>Map (HashMap, LinkedHashMap, TreeMap) 🗺️</li>
+      <li>Comparable vs Comparator ⚔️</li>
+      <li>Collections Utility Class 🛠️</li>
+    </ul>
+  </li>
 
-<li><strong>1️⃣1️⃣ MULTITHREADING & CONCURRENCY 🧵</strong>
-  <ul>
-    <li>Process vs Thread ⚙️</li>
-    <li>Thread Life Cycle 🔄</li>
-    <li>Creating Threads 🧑‍💻</li>
-    <li>Thread class vs Runnable ⚖️</li>
-    <li>Synchronization 🔐</li>
-    <li>Inter-thread Communication 📡</li>
-    <li>Deadlock ☠️</li>
-    <li>ExecutorService 🧰</li>
-    <li>Callable & Future 🔮</li>
-  </ul>
-</li>
+  <li><strong>🔟 JAVA 8 FEATURES ⭐</strong>
+    <ul>
+      <li>Lambda Expressions ➡️</li>
+      <li>Functional Interfaces 🔗</li>
+      <li>Stream API 🌊</li>
+      <li>Method References 🎯</li>
+      <li>Optional Class 🎁</li>
+      <li>forEach 🔁</li>
+      <li>Date & Time API ⏰</li>
+      <li>Default & Static methods in Interface 🧩</li>
+    </ul>
+  </li>
 
-<li><strong>1️⃣2️⃣ FILE HANDLING & IO 📁</strong>
-  <ul>
-    <li>File class 📄</li>
-    <li>Byte Streams 🔵</li>
-    <li>Character Streams 🔤</li>
-    <li>Serialization 📦</li>
-    <li>Deserialization 📤</li>
-    <li>NIO Basics ⚡</li>
-  </ul>
-</li>
+  <li><strong>1️⃣1️⃣ MULTITHREADING & CONCURRENCY 🧵</strong>
+    <ul>
+      <li>Process vs Thread ⚙️</li>
+      <li>Thread Life Cycle 🔄</li>
+      <li>Creating Threads 🧑‍💻</li>
+      <li>Thread class vs Runnable ⚖️</li>
+      <li>Synchronization 🔐</li>
+      <li>Inter-thread Communication 📡</li>
+      <li>Deadlock ☠️</li>
+      <li>ExecutorService 🧰</li>
+      <li>Callable & Future 🔮</li>
+    </ul>
+  </li>
 
-<li><strong>1️⃣3️⃣ JDBC (DATABASE CONNECTIVITY) 🛢️</strong>
-  <ul>
-    <li>JDBC Architecture 🏛️</li>
-    <li>JDBC Drivers 🚗</li>
-    <li>Steps to connect Database 🔌</li>
-    <li>CRUD Operations ✍️</li>
-    <li>PreparedStatement 🧾</li>
-    <li>CallableStatement ☎️</li>
-    <li>Batch Processing 📦</li>
-    <li>Transactions 🔄</li>
-  </ul>
-</li>
+  <li><strong>1️⃣2️⃣ FILE HANDLING & IO 📁</strong>
+    <ul>
+      <li>File class 📄</li>
+      <li>Byte Streams 🔵</li>
+      <li>Character Streams 🔤</li>
+      <li>Serialization 📦</li>
+      <li>Deserialization 📤</li>
+      <li>NIO Basics ⚡</li>
+    </ul>
+  </li>
 
-<li><strong>1️⃣4️⃣ ANNOTATIONS 🏷️</strong>
-  <ul>
-    <li>Built-in Annotations 📌</li>
-    <li>Custom Annotations 🛠️</li>
-    <li>@Override 🔁</li>
-    <li>@FunctionalInterface ⚙️</li>
-    <li>@Deprecated 🚫</li>
-  </ul>
-</li>
+  <li><strong>1️⃣3️⃣ JDBC (DATABASE CONNECTIVITY) 🛢️</strong>
+    <ul>
+      <li>JDBC Architecture 🏛️</li>
+      <li>JDBC Drivers 🚗</li>
+      <li>Steps to connect Database 🔌</li>
+      <li>CRUD Operations ✍️</li>
+      <li>PreparedStatement 🧾</li>
+      <li>CallableStatement ☎️</li>
+      <li>Batch Processing 📦</li>
+      <li>Transactions 🔄</li>
+    </ul>
+  </li>
 
-<li><strong>1️⃣5️⃣ MEMORY MANAGEMENT 🧠</strong>
-  <ul>
-    <li>Stack vs Heap 🧱</li>
-    <li>Garbage Collection 🗑️</li>
-    <li>JVM Memory Areas 🏠</li>
-    <li>Types of Garbage Collectors ♻️</li>
-  </ul>
-</li>
+  <li><strong>1️⃣4️⃣ ANNOTATIONS 🏷️</strong>
+    <ul>
+      <li>Built-in Annotations 📌</li>
+      <li>Custom Annotations 🛠️</li>
+      <li>@Override 🔁</li>
+      <li>@FunctionalInterface ⚙️</li>
+      <li>@Deprecated 🚫</li>
+    </ul>
+  </li>
 
-<li><strong>1️⃣6️⃣ DESIGN PATTERNS 🎨</strong>
-  <ul>
-    <li>Singleton 🔒</li>
-    <li>Factory 🏭</li>
-    <li>Builder 🧰</li>
-    <li>Prototype 🧬</li>
-    <li>Adapter 🔌</li>
-    <li>Strategy 🎯</li>
-    <li>Observer 👀</li>
-  </ul>
-</li>
+  <li><strong>1️⃣5️⃣ MEMORY MANAGEMENT 🧠</strong>
+    <ul>
+      <li>Stack vs Heap 🧱</li>
+      <li>Garbage Collection 🗑️</li>
+      <li>JVM Memory Areas 🏠</li>
+      <li>Types of Garbage Collectors ♻️</li>
+    </ul>
+  </li>
 
-<li><strong>1️⃣7️⃣ ADVANCED JAVA (OVERVIEW) 🚀</strong>
-  <ul>
-    <li>Servlets 🌐</li>
-    <li>JSP 📄</li>
-    <li>MVC Architecture 🏗️</li>
-    <li>Session Management 🧾</li>
-    <li>Filters 🧹</li>
-    <li>Listeners 👂</li>
-  </ul>
-</li>
-</ol>
-</div>
+  <li><strong>1️⃣6️⃣ DESIGN PATTERNS 🎨</strong>
+    <ul>
+      <li>Singleton 🔒</li>
+      <li>Factory 🏭</li>
+      <li>Builder 🧰</li>
+      <li>Prototype 🧬</li>
+      <li>Adapter 🔌</li>
+      <li>Strategy 🎯</li>
+      <li>Observer 👀</li>
+    </ul>
+  </li>
 
-<p>Lab note: Add short lab tasks for each topic (small coding exercises or mini-projects).</p>
+  <li><strong>1️⃣7️⃣ ADVANCED JAVA (OVERVIEW) 🚀</strong>
+    <ul>
+      <li>Servlets 🌐</li>
+      <li>JSP 📄</li>
+      <li>MVC Architecture 🏗️</li>
+      <li>Session Management 🧾</li>
+      <li>Filters 🧹</li>
+      <li>Listeners 👂</li>
+    </ul>
+  </li>
+  </ol>
+  </div>
+
+  <script>
+  // Load topic HTML into the right-side `.main` area without full navigation
+  // Capture the initial directory (before any history changes) so relative links resolve correctly
+  const __initialDir = window.location.href.replace(/[^\/]*$/, '');
+
+  async function loadTopic(url, push=true){
+    try{
+      const fetchUrl = new URL(url, __initialDir).href;
+      const res = await fetch(fetchUrl);
+      if(!res.ok) throw new Error('Failed to load ' + fetchUrl + ' (' + res.status + ')');
+      const text = await res.text();
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(text, 'text/html');
+      // Prefer a central content container if present (.card or .container), otherwise use body
+      const contentEl = doc.querySelector('.card, .container, .topic') || doc.body;
+      const target = document.querySelector('.main');
+      target.innerHTML = contentEl.innerHTML;
+      // update active link (match by href attribute)
+      document.querySelectorAll('.toc a').forEach(a=> a.classList.remove('active'));
+      const matching = Array.from(document.querySelectorAll('.toc a')).find(a=> a.getAttribute('href') === url);
+      if(matching) matching.classList.add('active');
+      if(push) history.pushState({page:url}, '', url);
+    }catch(err){
+      document.querySelector('.main').innerHTML = '<div class="note">Unable to load topic. Try opening the page directly.</div>';
+      console.error(err);
+    }
+  }
+
+  // Attach click handlers to TOC links
+  document.querySelectorAll('.toc a').forEach(a=>{
+    a.addEventListener('click', e=>{
+      e.preventDefault();
+      const url = a.getAttribute('href');
+      loadTopic(url);
+    });
+  });
+
+  // Handle browser back/forward
+  window.addEventListener('popstate', (e)=>{
+    const state = e.state;
+    if(state && state.page) loadTopic(state.page, false);
+  });
+
+  // Load first TOC link by default
+  const first = document.querySelector('.toc a');
+  if(first){ loadTopic(first.getAttribute('href'), false); first.classList.add('active'); }
+  </script>
+
+  <p>Lab note: Add short lab tasks for each topic (small coding exercises or mini-projects).</p>
 </div>
 </div>
 </body>
