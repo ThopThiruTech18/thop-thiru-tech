@@ -1,0 +1,26 @@
+/* Shared course page layout to ensure consistent header/sidebar/main/container */
+:root{
+  --sidebar-width:240px;
+  --header-height:88px;
+  --footer-height:40px;
+  --page-max-width:1000px;
+  --accent:#13c93b;
+  --card-bg: #ffffff;
+}
+*{box-sizing:border-box}
+body{font-family:Arial,Helvetica,sans-serif;margin:0;background:linear-gradient(135deg,#f7fff9,#fffaf0);color:#17212b}
+header{background:#111;color:#ffd700;padding:18px;text-align:center;position:fixed;top:0;left:0;right:0;height:var(--header-height);z-index:1000}
+.header-subjects{font-size:13px;color:#fff;margin-top:6px}
+.sidebar{position:fixed;top:calc(var(--header-height) + 8px);left:12px;width:var(--sidebar-width);height:calc(100% - var(--header-height) - var(--footer-height) - 16px);background:#1e1e1e;padding:14px;display:flex;flex-direction:column;gap:12px;border-radius:8px}
+.sidebar a{display:block;text-decoration:none;background:#2b2b2b;color:#fff;padding:10px;border-radius:8px;font-weight:700;text-align:center}
+.sidebar a:hover{background:var(--accent);transform:none}
+.sidebar a.active{background:#ffd700;color:#000}
+.main{margin-left:calc(var(--sidebar-width) + 40px);padding:calc(var(--header-height) + 20px) 24px calc(var(--footer-height) + 24px)}
+.container{max-width:var(--page-max-width);margin:auto;background:var(--card-bg);padding:24px;border-radius:10px;box-shadow:0 8px 24px rgba(11,35,60,0.06)}
+.course{display:inline-block;background:var(--accent);color:#fff;padding:10px 16px;margin:6px;border-radius:6px;text-decoration:none;font-weight:700}
+.question{background:#f6f8fa;padding:12px;border-radius:8px;margin-bottom:12px}
+footer{background:#111;color:#fff;text-align:center;padding:10px;position:fixed;bottom:0;left:0;right:0;height:var(--footer-height)}
+@media(max-width:900px){.sidebar{display:none}.main{margin-left:0;padding-top:calc(var(--header-height) + 12px)}}
+
+/* Ensure headings use shared topic header styles when present */
+.container h1, .container h2, .container h3{margin:0 0 12px 0}

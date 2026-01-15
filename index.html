@@ -225,3 +225,198 @@ We offer top-notch IT courses to help you build a successful career in technolog
 
 </body>
 </html>
+
+<script>
+// Dynamic loader: intercept sidebar/course links and load into .main without full reload
+const __initialDir_index = window.location.href.replace(/[^\/]*$/, '');
+
+async function loadPageIndex(url, push = true){
+    try{
+        if(!url) return;
+        // handle hash anchors (home)
+        if(url.startsWith('#')){
+            const id = url.slice(1) || 'home';
+            const el = document.getElementById(id);
+            if(el) el.scrollIntoView({behavior:'smooth'});
+            if(push) history.pushState({page:url}, '', url);
+            return;
+        }
+        let fetchUrl = new URL(url, __initialDir_index).href;
+        const res = await fetch(fetchUrl);
+        if(!res.ok) throw new Error('Failed to load ' + fetchUrl + ' (' + res.status + ')');
+        const text = await res.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(text, 'text/html');
+        // If the fetched page provides a full two-column `.layout` (TOC + content),
+        // inject that layout inside the current `.main` so the course TOC is visible.
+        const target = document.querySelector('.main');
+        const layoutEl = doc.querySelector('.layout');
+        if(layoutEl){
+            // add a small scoped stylesheet so injected layout's sidebar appears correctly
+            if(!document.getElementById('fetched-layout-style')){
+                const style = document.createElement('style');
+                style.id = 'fetched-layout-style';
+                style.textContent = `
+                    .fetched-layout{display:flex;gap:20px;align-items:flex-start}
+                    .fetched-layout .sidebar{flex:0 0 260px;position:static;height:auto;overflow:auto;padding:0}
+                    .fetched-layout .main{flex:1;min-width:0}
+                    /* Scoped TOC styles to override the site's .sidebar a rules */
+                    .fetched-layout .toc{ background: linear-gradient(90deg, rgba(240,248,255,0.9), rgba(255,255,255,0.9)); padding:12px; border-radius:8px; margin:12px 0; border:1px solid rgba(11,35,60,0.04); }
+                    .fetched-layout .toc ul{ list-style:none; padding:0; margin:0; display:block; }
+                    .fetched-layout .toc a{ display:block; padding:10px 12px; background:#eef6ff; color:#0b63ff; border-radius:6px; text-decoration:none; font-weight:600; border:1px solid rgba(11,99,255,0.08); margin:6px 0; }
+                    .fetched-layout .toc a:hover{ background:#dff0ff; transform:none; }
+                    /* make sure list markers and font look similar to original */
+                    .fetched-layout .toc li{ line-height:1.4; }
+                `;
+                document.head.appendChild(style);
+            }
+            const wrapper = document.createElement('div');
+            wrapper.className = 'fetched-layout';
+            wrapper.innerHTML = layoutEl.innerHTML;
+            target.innerHTML = '';
+            target.appendChild(wrapper);
+            // add a back-to-syllabus button at the top of the injected area
+            if(!document.getElementById('injected-back-button')){
+                const backP = document.createElement('p');
+                backP.id = 'injected-back-button';
+                backP.style.marginBottom = '12px';
+                backP.innerHTML = '<a href="courses/JavaCourseContent.html" class="btn btn-sm btn-outline-primary">← Back to Syllabus</a>';
+                backP.querySelector('a').addEventListener('click', function(ev){ ev.preventDefault(); loadPageIndex('courses/JavaCourseContent.html'); });
+                target.insertBefore(backP, target.firstChild);
+            }
+        } else {
+            // Choose the best fragment to inject:
+            // 1) prefer an explicit '.main' from the fetched page
+            // 2) then prefer a '.container .main' (container that has .main inside)
+            // 3) fall back to '.container' or full body
+            const contentEl = doc.querySelector('.main') || doc.querySelector('.container .main') || doc.querySelector('.container') || doc.body;
+            // If the fetched fragment is a full '.main' section, inject its innerHTML
+            // Otherwise, inject the container's innerHTML (wrapped content)
+            target.innerHTML = contentEl.innerHTML;
+            // add a back-to-syllabus button at the top of the injected area
+            if(!document.getElementById('injected-back-button')){
+                const backP = document.createElement('p');
+                backP.id = 'injected-back-button';
+                backP.style.marginBottom = '12px';
+                backP.innerHTML = '<a href="courses/JavaCourseContent.html" class="btn btn-sm btn-outline-primary">← Back to Syllabus</a>';
+                backP.querySelector('a').addEventListener('click', function(ev){ ev.preventDefault(); loadPageIndex('courses/JavaCourseContent.html'); });
+                target.insertBefore(backP, target.firstChild);
+            }
+        }
+
+        // Import any stylesheets from the fetched document (resolve relative hrefs)
+        doc.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
+            const href = link.getAttribute('href');
+            if(!href) return;
+            try{
+                const abs = new URL(href, fetchUrl).href;
+                // avoid duplicating the same stylesheet
+                if(!document.querySelector('link[href="' + abs + '"]')){
+                    const nl = document.createElement('link');
+                    nl.rel = 'stylesheet';
+                    nl.href = abs;
+                    document.head.appendChild(nl);
+                }
+            }catch(e){ /* ignore malformed hrefs */ }
+        });
+        // Push the fetched URL into history BEFORE executing fetched scripts so
+        // the fetched page's scripts (which compute a base using window.location)
+        // resolve relative links correctly. Only push when requested.
+        if(push) history.pushState({page:fetchUrl}, '', fetchUrl);
+
+        // Execute any scripts from the fetched document so injected content initializes
+        // (resolve script src against the fetched page URL)
+        const fetchedScripts = doc.querySelectorAll('script');
+        fetchedScripts.forEach(s => {
+            const ns = document.createElement('script');
+            if(s.src){
+                try{
+                    ns.src = new URL(s.src, fetchUrl).href;
+                    // preserve execution order by disabling async
+                    ns.async = false;
+                }catch(e){ return; }
+            } else {
+                ns.textContent = s.textContent;
+            }
+            document.body.appendChild(ns);
+        });
+
+        // update active state for sidebar links (compare resolved absolute URLs)
+        document.querySelectorAll('.sidebar a').forEach(a=> a.classList.remove('active'));
+        const matching = Array.from(document.querySelectorAll('.sidebar a')).find(a=>{
+            try{ return new URL(a.getAttribute('href'), __initialDir_index).href === fetchUrl }catch(e){return false}
+        });
+        if(matching) matching.classList.add('active');
+    }catch(err){
+        console.error(err);
+        const msg = 'Unable to load page. Tried: ' + (typeof fetchUrl !== 'undefined' ? fetchUrl : url) + ' — ' + err.message;
+        const container = document.querySelector('.main');
+        if(container) container.innerHTML = '<div class="container"><p>' + msg.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</p></div>';
+    }
+}
+
+// intercept clicks on sidebar and course links
+document.querySelectorAll('.sidebar a, .courses a').forEach(a=>{
+    a.addEventListener('click', e=>{
+        const href = a.getAttribute('href');
+        // allow external links (full http) to proceed normally
+        if(href && (href.startsWith('http://') || href.startsWith('https://'))) return;
+        e.preventDefault();
+        loadPageIndex(href);
+    });
+});
+
+// Delegate clicks inside the injected .main area for any TOC links coming from fetched pages
+// This ensures `.toc a` inside injected course pages load via AJAX instead of navigating.
+if(!document.getElementById('injected-toc-delegation')){
+    const marker = document.createElement('div');
+    marker.id = 'injected-toc-delegation';
+    marker.style.display = 'none';
+    document.body.appendChild(marker);
+    document.querySelector('.main').addEventListener('click', e => {
+        const a = e.target.closest && e.target.closest('.toc a');
+        if(!a) return;
+        const href = a.getAttribute('href');
+        if(!href) return;
+        // allow external links to proceed
+        if(href.startsWith('http://') || href.startsWith('https://')) return;
+        e.preventDefault();
+        // Resolve the href against the current window location (which is set to the fetched
+        // course page URL via history.pushState). This ensures relative 'java-topics/..' links
+        // are resolved correctly to the course folder rather than the index base.
+        let abs;
+        try{ abs = new URL(href, window.location.href).href }catch(err){ abs = href }
+        loadPageIndex(abs);
+    });
+}
+
+// handle browser back/forward
+window.addEventListener('popstate', e=>{
+    const state = e.state;
+    if(state && state.page){
+        const p = state.page;
+        if(p.startsWith('#')){
+            const id = p.slice(1) || 'home';
+            const el = document.getElementById(id);
+            if(el) el.scrollIntoView({behavior:'smooth'});
+        } else {
+            // load without pushing history
+            loadPageIndex(p, false);
+        }
+    }
+});
+
+// On initial load, if the URL points to a course page (not index), load it into the main area
+(() => {
+    const current = window.location.href;
+    // if path contains '/courses/' and is not exactly the index page, attempt to load
+    if(current.includes('/courses/') && !current.endsWith('/index.html') && !current.endsWith('/')){
+        // do nothing if we're already on index root
+        const path = current.replace(__initialDir_index, '');
+        // if path looks like a course path, load it
+        if(path && path !== 'index.html'){
+            loadPageIndex(current, false).catch(()=>{});
+        }
+    }
+})();
+</script>

@@ -1,1 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Collections Framework</title>
+  <style>
+    body{ font-family: Arial, Helvetica, sans-serif; margin:24px; background:#fbfdff; color:#06203a }
+    .card{ max-width:1000px; margin:auto; background:#fff; padding:20px; border-radius:10px; box-shadow:0 10px 24px rgba(6,16,40,0.04) }
+    h1{ background:#e8f5e9; padding:12px; border-radius:8px }
+    h2{ background:#eaf2ff; padding:10px; border-radius:6px }
+    pre{ background:#f6f9ff; padding:10px; border-left:4px solid #4f83ff; overflow:auto }
+    table{ width:100%; border-collapse:collapse; margin:12px 0 }
+    th, td{ border:1px solid #e8eef8; padding:8px; text-align:left }
+    hr{ border:0; border-top:2px solid #eef2f6; margin:18px 0 }
+    ul{ padding-left:20px }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1 style="background:linear-gradient(90deg,#f0f9ff,#f7fbf2);padding:12px;border-radius:8px;color:#06203a;margin-bottom:12px">Java Collections Framework (Zero → Hero)</h1>
+
+    <h2>What is a Collection?</h2>
+    <p>A Collection is an object that stores multiple elements. Collections are dynamic (size can grow/shrink) and are part of <code>java.util</code>.</p>
+
+    <hr>
+
+    <h2>Why Collections?</h2>
+    <ul>
+      <li>Dynamic size</li>
+      <li>Ready-made classes and implementations</li>
+      <li>Powerful utility methods</li>
+      <li>Easy data manipulation</li>
+    </ul>
+
+    <hr>
+
+    <h2>Array vs Collection</h2>
+    <table>
+      <thead><tr><th>Feature</th><th>Array</th><th>Collection</th></tr></thead>
+      <tbody>
+        <tr><td>Size</td><td>Fixed</td><td>Dynamic</td></tr>
+        <tr><td>Methods</td><td>Few</td><td>Many</td></tr>
+        <tr><td>Data Type</td><td>Primitives + Objects</td><td>Objects only</td></tr>
+        <tr><td>Flexibility</td><td>Less</td><td>More</td></tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <h2>Collection Framework Hierarchy</h2>
+    <pre><code>Iterable
+ └── Collection
+      ├── List
+      │     ├── ArrayList
+      │     ├── LinkedList
+      │     └── Vector
+      │           └── Stack
+      ├── Set
+      │     ├── HashSet
+      │     ├── LinkedHashSet
+      │     └── TreeSet
+      └── Queue
+            ├── PriorityQueue
+            └── Deque
+                  └── ArrayDeque</code></pre>
+
+    <hr>
+
+    <h2>1. List (Ordered, duplicates allowed)</h2>
+    <h3>ArrayList</h3>
+    <pre><code>List<String> list = new ArrayList<>();
+list.add("Java");
+list.add("Spring");
+list.add("Java");
+System.out.println(list);</code></pre>
+    <p>Fast random access, slower insert/delete in middle.</p>
+
+    <h3>LinkedList</h3>
+    <pre><code>List<String> list = new LinkedList<>();
+list.add("Java");
+list.add("Spring");</code></pre>
+    <p>Fast insertion/deletion, slower random access.</p>
+
+    <h3>Vector / Stack (Legacy)</h3>
+    <p>Vector is synchronized (thread-safe). Stack provides LIFO operations.</p>
+
+    <hr>
+
+    <h2>2. Set (No duplicates)</h2>
+    <h3>HashSet</h3>
+    <pre><code>Set<Integer> set = new HashSet<>();
+set.add(10);
+set.add(20);
+set.add(10);
+System.out.println(set);</code></pre>
+    <p>Fast, but no guaranteed order.</p>
+
+    <h3>LinkedHashSet & TreeSet</h3>
+    <p><strong>LinkedHashSet</strong> preserves insertion order. <strong>TreeSet</strong> keeps elements sorted.</p>
+
+    <hr>
+
+    <h2>3. Queue (FIFO)</h2>
+    <h3>PriorityQueue</h3>
+    <pre><code>Queue<Integer> q = new PriorityQueue<>();
+q.add(30); q.add(10); q.add(20);
+System.out.println(q.poll()); // 10</code></pre>
+
+    <h3>Deque / ArrayDeque</h3>
+    <pre><code>Deque<Integer> dq = new ArrayDeque<>();
+dq.addFirst(10); dq.addLast(20);</code></pre>
+
+    <hr>
+
+    <h2>Map (Key → Value)</h2>
+    <pre><code>Map<Integer,String> map = new HashMap<>();
+map.put(1, "Java");
+map.put(2, "Spring");</code></pre>
+    <p><strong>HashMap</strong> is fast (no order). <strong>LinkedHashMap</strong> preserves insertion order. <strong>TreeMap</strong> sorts by key.</p>
+
+    <hr>
+
+    <h2>Common Methods</h2>
+    <pre><code>list.add();
+list.remove();
+list.contains();
+list.size();
+list.isEmpty();
+list.clear();</code></pre>
+
+    <hr>
+
+    <h2>Iterating Collections</h2>
+    <h3>for-each</h3>
+    <pre><code>for (String s : list) {
+    System.out.println(s);
+}</code></pre>
+
+    <h3>Iterator</h3>
+    <pre><code>Iterator<String> it = list.iterator();
+while (it.hasNext()) System.out.println(it.next());</code></pre>
+
+    <hr>
+
+    <h2>Advanced</h2>
+    <h3>Comparable</h3>
+    <pre><code>class Student implements Comparable<Student> {
+    public int compareTo(Student s) { return this.id - s.id; }
+}</code></pre>
+
+    <h3>Comparator</h3>
+    <pre><code>Comparator<Student> c = (s1, s2) -> s1.name.compareTo(s2.name);</code></pre>
+
+    <h3>Collections Utility</h3>
+    <pre><code>Collections.sort(list);
+Collections.reverse(list);
+Collections.max(list);</code></pre>
+
+    <hr>
+
+    <h2>Real-time Usage</h2>
+    <ul>
+      <li>Store DB results</li>
+      <li>Cache data</li>
+      <li>User sessions</li>
+      <li>API responses</li>
+    </ul>
+
+    <hr>
+
+    <h2>Interview One-Liners</h2>
+    <ul>
+      <li>List → Order + duplicates</li>
+      <li>Set → Unique elements</li>
+      <li>Map → Key–value</li>
+      <li>HashMap → Fastest</li>
+      <li>TreeMap → Sorted</li>
+    </ul>
+
+    <hr>
+
+    <h2>Final Summary</h2>
+    <ul>
+      <li>Collections are dynamic</li>
+      <li>Provide ready-made data structures</li>
+      <li>Backbone of Java applications</li>
+    </ul>
+
+    <p style="margin-top:12px;"><a href="../JavaCourseContent.html">← Back to syllabus</a></p>
+  </div>
+</body>
+</html>
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Collections Framework</title><style>body{font-family:Arial,Helvetica,sans-serif;margin:24px;background:#fff8f2;color:#3b2a13}.card{max-width:900px;margin:auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 8px 20px rgba(2,20,40,0.05)} a{color:#b45b08;text-decoration:none;font-weight:600}</style></head><body><div class="card"><h1>Collections Framework</h1><ul><li>Hierarchy: Collection, List, Set, Queue, Map</li><li>Common implementations: ArrayList, HashMap, HashSet</li><li>Comparable vs Comparator</li><li>Collections utility class</li></ul><p><a href="../JavaCourseContent.html">← Back to syllabus</a></p></div></body></html>

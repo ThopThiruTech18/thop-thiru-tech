@@ -1,0 +1,103 @@
+/* Gentle, eye-friendly header style for all topic pages */
+:root{
+  --header-bg: linear-gradient(90deg,#f0f9ff,#f7fbf2);
+  --header-color: #06203a;
+  --header-size: 1.6rem;
+}
+.topic-title{
+  background: var(--header-bg);
+  color: var(--header-color);
+  padding: 12px 14px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-size: var(--header-size);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+/* Small responsive tweak */
+@media (max-width:480px){
+  .topic-title{font-size:1.25rem;padding:10px}
+}
+
+/* keep existing page card spacing consistent */
+.card{padding-top:6px}
+
+/* Thick accessible borders for headings (top/right/bottom/left) */
+:root{
+  --header-border-size: 6px;
+  --subheader-border-size: 4px;
+  --header-border-color: rgba(11,99,255,0.14);
+  --subheader-border-color: rgba(11,99,255,0.10);
+}
+
+/* H1 / topic title - thick border on all sides */
+.topic-title, .main h1, .card h1 {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border: var(--header-border-size) solid var(--header-border-color);
+  padding: 12px 14px;
+  background: var(--header-bg);
+  border-radius: 10px;
+  margin: 8px 0 12px 0;
+}
+
+/* H2 - slightly thinner border */
+.card h2, .main h2, .topic-subtitle{
+  display:block;
+  width:100%;
+  box-sizing: border-box;
+  border: var(--subheader-border-size) solid var(--subheader-border-color);
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: linear-gradient(90deg,#e6f4ff,#eef9ff);
+  margin: 8px 0;
+}
+
+/* H3 - subtle border */
+.card h3, .main h3, .topic-small{
+  display:block;
+  width:100%;
+  box-sizing: border-box;
+  border: 2px solid rgba(6,24,64,0.06);
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: linear-gradient(90deg,#f7fbff,#fcfefe);
+  margin: 6px 0;
+}
+
+@media (max-width:480px){
+  .topic-title{font-size:1.25rem;padding:10px}
+  .card h2, .main h2, .topic-subtitle{font-size:1rem;padding:8px}
+  .card h3, .main h3, .topic-small{font-size:0.95rem;padding:6px}
+}
+
+/* Sub-heading styles similar to the attached design: gentle blue background, strong label */
+.card h2, .main h2, .topic-subtitle{
+  background: linear-gradient(90deg,#e6f4ff,#eef9ff);
+  color: #08306b;
+  padding: 8px 12px;
+  border-radius: 8px;
+  display: inline-block;
+  font-weight: 800;
+  margin: 8px 0;
+  letter-spacing: 0.2px;
+}
+
+/* Smaller section headings */
+.card h3, .main h3, .topic-small{
+  background: linear-gradient(90deg,#f7fbff,#fcfefe);
+  color: #12304a;
+  padding: 6px 10px;
+  border-radius: 6px;
+  display: inline-block;
+  font-weight: 700;
+  margin: 6px 0;
+}
+
+/* Ensure contrast and accessible sizing */
+@media (max-width:480px){
+  .card h2, .main h2, .topic-subtitle{font-size:1rem;padding:8px}
+  .card h3, .main h3, .topic-small{font-size:0.95rem;padding:6px}
+}

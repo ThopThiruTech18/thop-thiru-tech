@@ -1,1 +1,154 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Java 8 Features</title><style>body{font-family:Arial,Helvetica,sans-serif;margin:24px;background:#f0f7ff;color:#052a42}.card{max-width:900px;margin:auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 8px 20px rgba(2,20,40,0.05)} a{color:#0b63ff;text-decoration:none;font-weight:600}</style></head><body><div class="card"><h1>Java 8 Features</h1><ul><li>Lambda expressions & functional interfaces</li><li>Stream API, method references</li><li>Optional, forEach, Date & Time API</li><li>Default & static methods in interfaces</li></ul><p><a href="../JavaCourseContent.html">← Back to syllabus</a></p></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Java 8 Features</title>
+	<style>
+		body{font-family:Arial,Helvetica,sans-serif;margin:24px;background:#fbfdff;color:#06203a}
+		.card{max-width:1000px;margin:auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 10px 24px rgba(6,16,40,0.04)}
+		h1{background:#e8f5e9;padding:12px;border-radius:8px}
+		h2{background:#eaf2ff;padding:10px;border-radius:6px}
+		pre{background:#f6f9ff;padding:10px;border-left:4px solid #4f83ff;overflow:auto}
+		ul{padding-left:20px}
+		table{width:100%;border-collapse:collapse;margin:12px 0}
+		th,td{border:1px solid #e8eef8;padding:8px;text-align:left}
+		a.back{color:#0b63ff;text-decoration:none;font-weight:600}
+	</style>
+</head>
+<body>
+	<div class="card">
+		<h1 style="background:linear-gradient(90deg,#f0f9ff,#f7fbf2);padding:12px;border-radius:8px;color:#06203a;margin-bottom:12px">Java 8 Features</h1>
+
+		<h2>1. Lambdas & Anonymous Classes</h2>
+		<p>Before Java 8, use an anonymous inner class:</p>
+		<pre><code>Runnable r = new Runnable() {
+		public void run() {
+				System.out.println("Thread Running");
+		}
+};</code></pre>
+		<p>Java 8: Lambda expression (concise):</p>
+		<pre><code>Runnable r = () -> System.out.println("Thread Running");</code></pre>
+		<ul>
+			<li>Less code</li>
+			<li>Clean and readable</li>
+		</ul>
+
+		<h2>2. Functional Interface</h2>
+		<p>Interface with only <strong>one</strong> abstract method.</p>
+		<pre><code>@FunctionalInterface
+interface Calculator {
+		int add(int a, int b);
+}
+
+Calculator c = (a, b) -> a + b;
+System.out.println(c.add(10, 20));</code></pre>
+		<p>Valid functional interfaces can have <strong>default</strong> and <strong>static</strong> methods.</p>
+
+		<h2>3. Built-in Functional Interfaces</h2>
+		<ul>
+			<li><strong>Predicate&lt;T&gt;</strong> — test a condition
+				<pre><code>Predicate<Integer> p = x -> x > 18;
+System.out.println(p.test(20)); // true</code></pre>
+				<em>Used in <code>filter()</code></em>
+			</li>
+			<li><strong>Function&lt;T,R&gt;</strong> — transform/convert
+				<pre><code>Function<Integer,Integer> f = x -> x * x;
+System.out.println(f.apply(5)); // 25</code></pre>
+				<em>Used in <code>map()</code></em>
+			</li>
+			<li><strong>Consumer&lt;T&gt;</strong> — consume data
+				<pre><code>Consumer<String> c = s -> System.out.println(s);
+c.accept("Java 8");</code></pre>
+				<em>Used in <code>forEach()</code></em>
+			</li>
+			<li><strong>Supplier&lt;T&gt;</strong> — provide data (no input)
+				<pre><code>Supplier<Double> s = () -> Math.random();
+System.out.println(s.get());</code></pre>
+			</li>
+		</ul>
+
+		<h2>4. Stream API (Functional processing of collections)</h2>
+		<p>Stream is a sequence of elements supporting aggregate operations. Streams do not store data.</p>
+		<pre><code>List<Integer> list = Arrays.asList(10,20,30,40);
+
+list.stream()
+		.filter(x -> x > 20)
+		.forEach(System.out::println);</code></pre>
+
+		<h3>Intermediate vs Terminal</h3>
+		<p><strong>Intermediate</strong>: filter(), map(), sorted(), distinct(), limit()</p>
+		<p><strong>Terminal</strong>: forEach(), collect(), count(), reduce(), findFirst()</p>
+
+		<pre><code>list.stream()
+		.filter(x -> x % 2 == 0)
+		.map(x -> x * 2)
+		.forEach(System.out::println);</code></pre>
+
+		<h2>5. Method References</h2>
+		<p>Syntax: <code>ClassName::methodName</code></p>
+		<pre><code>list.forEach(System.out::println);</code></pre>
+		<p>Types: static method, instance method, constructor reference</p>
+		<pre><code>Supplier<ArrayList<String>> s = ArrayList::new;</code></pre>
+
+		<h2>6. Default & Static Methods in Interfaces</h2>
+		<pre><code>interface Vehicle {
+		default void start() { System.out.println("Vehicle Started"); }
+}
+
+interface Utility {
+		static void show() { System.out.println("Static Method"); }
+}</code></pre>
+		<p>Default methods help avoid breaking existing implementations.</p>
+
+		<h2>7. Optional (Null-safety)</h2>
+		<p>Before Java 8, calling methods on a null object caused NPEs.</p>
+		<pre><code>Optional<String> opt = Optional.ofNullable(name);
+opt.ifPresent(System.out::println);
+
+// Other methods: isPresent(), orElse(), orElseGet(), orElseThrow()</code></pre>
+
+		<h2>8. forEach()</h2>
+		<pre><code>list.forEach(x -> System.out.println(x));
+// or
+list.forEach(System.out::println);</code></pre>
+
+		<h2>9. Date & Time API (java.time)</h2>
+		<pre><code>LocalDate date = LocalDate.now();
+LocalTime time = LocalTime.now();
+LocalDateTime dt = LocalDateTime.now();</code></pre>
+		<p>New API is immutable and thread-safe.</p>
+
+		<h2>10. Parallel Streams</h2>
+		<pre><code>list.parallelStream().forEach(System.out::println);</code></pre>
+		<p>Useful for big data; not always better for small collections.</p>
+
+		<h2>Real-time Use Cases</h2>
+		<ul>
+			<li>Filter employees by salary</li>
+			<li>Transform and sort API responses</li>
+			<li>Process large datasets</li>
+			<li>Reduce null-related bugs using Optional</li>
+		</ul>
+
+		<h2>Common Interview Questions</h2>
+		<ul>
+			<li>Lambda vs Anonymous class</li>
+			<li>map() vs flatMap()</li>
+			<li>Stream vs Collection</li>
+			<li>Benefits of Optional</li>
+			<li>Parallel stream pitfalls</li>
+		</ul>
+
+		<h2>Final Summary</h2>
+		<ul>
+			<li>Functional programming style</li>
+			<li>Less boilerplate, cleaner code</li>
+			<li>High-performance tools for collections</li>
+			<li>Essential for interviews</li>
+		</ul>
+
+		<p style="margin-top:12px;"><a class="back" href="../JavaCourseContent.html">← Back to syllabus</a></p>
+	</div>
+</body>
+</html>
